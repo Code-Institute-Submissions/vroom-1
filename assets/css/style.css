@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  color: #141414;
+}
+
+.bigger-font {
+  font-size: 1.5em;
+}
+.contact-bg {
+  min-height: 100vh;
+  background: url('../images/jake-givens-freeway-traffic.jpg') no-repeat 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.add-opacity {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.add-padding {
+  padding: 10px 20px;
+}
+
+.push-down100px {
+  margin-top: 100px;
+}
+
+.push-down10px {
+  margin-top: 10px;
+}
