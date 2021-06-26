@@ -19,7 +19,7 @@ async function callAPI(endPoint) {
 let endPointDR = `rankings/drivers?season=2021`;
 callAPI(endPointDR);
 
-let endPointTeams = `teams`;
+let endPointTeams = `rankings/teams?season=2021`;
 callAPI(endPointTeams);
 
 const time = Date.now();
