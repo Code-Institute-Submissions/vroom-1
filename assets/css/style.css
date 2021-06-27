@@ -38,3 +38,14 @@ body {
 .push-down10px {
   margin-top: 10px;
 }
+
+#hideOnMobile {
+  display: none;
+}
+
+/* ---------- Media Queries ---------- */
+@media screen and (min-width: 768px) {
+  #hideOnMobile {
+    display: table-cell;
+  }
+}

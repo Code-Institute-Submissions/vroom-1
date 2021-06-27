@@ -72,6 +72,17 @@ function getDriverPoints() {
   return points
 }
 
+// retrieve teams from localStorage and store in array
+function getTeam() {
+  let teams = []
+  let racerRankings = JSON.parse(localStorage.getItem('racerRankings'))
+  racerRankings.forEach((element) => {
+    let team = element.team.name
+    teams.push(team)
+  })
+  return teams
+}
+
 // add Driverpositions to table
 function addPositions() {
   const tableDriverStandings = document.getElementById('driverStandings')
@@ -127,6 +138,23 @@ function addPoints() {
   tableDriverStandings.appendChild(bodyDriverStandings)
 }
 
+// add teams to table (for steps see comments in addPositions function)
+function addTeams() {
+  const tableDriverStandings = document.getElementById('driverStandings')
+  const bodyDriverStandings = document.getElementById('tbDriverStandings')
+
+  teams = getTeam()
+  teams.forEach((teamName) => {
+    let row = document.getElementById('entry')
+    let cellTeam = document.createElement('td')
+    cellTeam.innerHTML = teamName
+    cellTeam.id = 'hideOnMobile'
+    row.appendChild(cellTeam)
+    bodyDriverStandings.appendChild(row)
+  })
+  tableDriverStandings.appendChild(bodyDriverStandings)
+}
+
 console.log(endpoints)
 console.log(JSON.parse(localStorage.getItem('racerRankings')))
 console.log(JSON.parse(localStorage.getItem('constructorRankings')))
@@ -138,4 +166,5 @@ function displayDriverStanding() {
   addPositions()
   addDrivers()
   addPoints()
+  addTeams()
 }
