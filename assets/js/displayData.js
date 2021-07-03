@@ -38,6 +38,7 @@ async function callAPI() {
 }
 
 displayDriverStanding();
+displayTeamStanding();
 
 // retrieve positions from localStorage and store in array
 function getDriverPosition() {
@@ -170,6 +171,12 @@ function displayDriverStanding() {
   addTeams();
 }
 
+function displayTeamStanding() {
+  addTeamPositions();
+  addConstructors();
+  addTeamPoints();
+}
+
 // show modal with details for selected driver
 function moreInfo() {
   var driverModal = new bootstrap.Modal(document.getElementById("moreInfo"), {
@@ -230,4 +237,99 @@ function writeToModal(name, date, nationality, photo) {
   let driverPhoto = document.getElementById("pic");
   $("#pic").attr("src", photo);
   modalBody.append(driverPhoto);
+}
+
+// TODO: make functions for driverstandings acccept parameters to be usable for teamstandings!
+
+// retrieve team positions from localStorage and store in array
+function getTeamPosition() {
+  let teamPosition = [];
+  let constructorRankings = JSON.parse(
+    localStorage.getItem("constructorRankings")
+  );
+  constructorRankings.forEach(function (element) {
+    let pos = element.position;
+    teamPosition.push(pos);
+  });
+  return teamPosition;
+}
+
+// retrieve teams from localStorage and store in array
+function getConstructor() {
+  let constructors = [];
+  let constructorRankings = JSON.parse(
+    localStorage.getItem("constructorRankings")
+  );
+  constructorRankings.forEach(function (element) {
+    let team = element.team.name;
+    constructors.push(team);
+  });
+  return constructors;
+}
+
+// retrieve points from localStorage and store in array
+function getTeamPoints() {
+  let teamPoints = [];
+  let constructorRankings = JSON.parse(
+    localStorage.getItem("constructorRankings")
+  );
+  constructorRankings.forEach(function (element) {
+    let teamPoint = element.points;
+    teamPoints.push(teamPoint);
+  });
+  return teamPoints;
+}
+
+// add teampositions to table
+function addTeamPositions() {
+  const tableTeamStandings = document.getElementById("teamStandings");
+  const bodyTeamStandings = document.getElementById("tbTeamStandings");
+
+  let position = getTeamPosition();
+  position.forEach(function (number) {
+    //create row and give it an ID
+    let row = document.createElement("tr");
+    row.id = "teamEntry";
+    // create cells, fill them with values from array and append to row
+    let cellPos = document.createElement("td");
+    cellPos.innerHTML = number;
+    row.appendChild(cellPos);
+    // append row to table body
+    bodyTeamStandings.appendChild(row);
+  });
+
+  // append table body to table
+  tableTeamStandings.appendChild(bodyTeamStandings);
+}
+
+// add teams to table
+function addConstructors() {
+  const tableTeamStandings = document.getElementById("teamStandings");
+  const bodyTeamStandings = document.getElementById("tbTeamStandings");
+
+  let constructors = getConstructor();
+  constructors.forEach((constructor) => {
+    let row = document.getElementById("teamEntry");
+    let cellConstructor = document.createElement("td");
+    cellConstructor.innerHTML = constructor;
+    row.appendChild(cellConstructor);
+    bodyTeamStandings.appendChild(row);
+  });
+  tableTeamStandings.appendChild(bodyTeamStandings);
+}
+
+// add teampoints to table
+function addTeamPoints() {
+  const tableTeamStandings = document.getElementById("teamStandings");
+  const bodyTeamStandings = document.getElementById("tbTeamStandings");
+
+  let teamPoints = getTeamPoints();
+  teamPoints.forEach((teamPoint) => {
+    let row = document.getElementById("teamEntry");
+    let cellTeampoints = document.createElement("td");
+    cellTeampoints.innerHTML = teamPoint;
+    row.appendChild(cellTeampoints);
+    bodyTeamStandings.appendChild(row);
+  });
+  tableTeamStandings.appendChild(bodyTeamStandings);
 }
