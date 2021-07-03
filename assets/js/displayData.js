@@ -333,3 +333,22 @@ function addTeamPoints() {
   });
   tableTeamStandings.appendChild(bodyTeamStandings);
 }
+
+// Change text color, bg-color and add border to match the selected team
+$("#mercedes").on("click", function () {
+  $("td").css("color", "#C0C0C0");
+  $("td").css("background-color", "black");
+  $("td").css("border", "1px #00D2BE solid");
+});
+
+$("#redBull").on("click", function () {
+  $("td").css("color", "#FCD800");
+  $("td").css("background-color", "#001E3C");
+  $("td").css("border", "1px #D7061E solid");
+});
+
+$("#mcLaren").on("click", function () {
+  $("td").css("color", "#FF8700");
+  $("td").css("background-color", "#1E2D7A");
+  $("td").css("border", "1px #443E47 solid");
+});
