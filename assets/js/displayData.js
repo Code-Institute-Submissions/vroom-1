@@ -114,6 +114,7 @@ function addDrivers() {
   drivers.forEach(function (name) {
     let row = document.getElementById("entry");
     let cellDriver = document.createElement("td");
+    cellDriver.addEventListener("click", moreInfo);
     cellDriver.innerHTML = name;
     cellDriver.id = name.split(" ")[1];
     row.appendChild(cellDriver);
@@ -167,4 +168,66 @@ function displayDriverStanding() {
   addDrivers();
   addPoints();
   addTeams();
+}
+
+// show modal with details for selected driver
+function moreInfo() {
+  var driverModal = new bootstrap.Modal(document.getElementById("moreInfo"), {
+    keyboard: true,
+    focus: true,
+    backdrop: true,
+  });
+  let name = this.innerHTML;
+  searchDriver(name);
+  console.log(JSON.parse(localStorage.getItem(`${name}`)));
+
+  driverModal.show();
+}
+
+// get driver info and save data for modal to localStorage
+function searchDriver(name) {
+  fetch(`https://api-formula-1.p.rapidapi.com/drivers?search=${name}`, {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+      "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
+    },
+  })
+    .then(async (res) => {
+      let newResult = await res.json();
+      let details = newResult.response;
+
+      localStorage.setItem(`${name}`, JSON.stringify(details));
+      let driverDetails = JSON.parse(localStorage.getItem(`${name}`));
+      let imageURL = driverDetails[0].image;
+      let fullname = driverDetails[0].name;
+      let driverNationality = driverDetails[0].nationality;
+      let birthdate = driverDetails[0].birthdate;
+      let modalHeading = fullname;
+      let bDay = `Birthdate: ${birthdate}`;
+      let nat = `Nationality: ${driverNationality}`;
+      writeToModal(modalHeading, bDay, nat, imageURL);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
+function writeToModal(name, date, nationality, photo) {
+  let modalHeading = document.getElementById("fullName");
+  let heading = document.getElementById("moreInfoLabel");
+  heading.innerHTML = name;
+  modalHeading.prepend(heading);
+
+  let modalBody = document.getElementById("driverDetails");
+  let detail1 = document.getElementById("dateOfBirth");
+  detail1.innerHTML = date;
+  modalBody.append(detail1);
+  let detail2 = document.getElementById("driverNationality");
+  detail2.innerHTML = nationality;
+  modalBody.append(detail2);
+
+  let driverPhoto = document.getElementById("pic");
+  $("#pic").attr("src", photo);
+  modalBody.append(driverPhoto);
 }
