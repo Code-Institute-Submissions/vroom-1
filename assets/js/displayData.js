@@ -352,3 +352,44 @@ $("#mcLaren").on("click", function () {
   $("td").css("background-color", "#1E2D7A");
   $("td").css("border", "1px #443E47 solid");
 });
+
+function getRaceInfo() {
+  // create Map to pair races with status 'prev', 'current' or 'next'
+  const races = new Map();
+  let currentRace = JSON.parse(localStorage.getItem("currentRace"));
+  let prevRace = JSON.parse(localStorage.getItem("prevRace"));
+  let nextRace = JSON.parse(localStorage.getItem("nextRace"));
+  races.set(currentRace, "current");
+  races.set(prevRace, "prev");
+  races.set(nextRace, "next");
+
+  // loop through Map to retrieve relevant data for each race and pass to function to display
+  for (let [key, value] of races) {
+    let raceCountry = key[0].competition.location.country;
+    let raceCity = key[0].competition.location.city;
+    let raceName = key[0].competition.name;
+    let raceDate = key[0].date.slice(0, 10);
+    let status = value;
+
+    console.log(raceCountry);
+    console.log(raceCity);
+    console.log(raceName);
+    console.log(raceDate);
+    console.log(status);
+    console.log("end of loop");
+    displayScheduleOverview(status, raceCountry, raceCity, raceName, raceDate);
+  }
+}
+
+// fill cards with data
+function displayScheduleOverview(status, country, city, rName, rDate) {
+  let cardHeading = document.getElementById(`${status}Country`);
+  cardHeading.innerHTML = `${country}, ${city}`;
+  let cardBody = document.getElementById(`${status}Name`);
+  // use innerText instead of innerHTML to keep newLine
+  cardBody.innerText = `${rName}
+    ${rDate}
+    `;
+}
+
+getRaceInfo();
