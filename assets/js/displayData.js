@@ -393,3 +393,40 @@ function displayScheduleOverview(status, country, city, rName, rDate) {
 }
 
 getRaceInfo();
+
+// add eventListeners to buttons
+let moveLeft = document.getElementById("left");
+moveLeft.addEventListener("click", shiftLeft);
+let moveRight = document.getElementById("right");
+moveRight.addEventListener("click", shiftRight);
+
+// hide the card currently displayed, show card left from it
+// and remove 'left' button if the card for previous race is displayed
+function shiftLeft() {
+  if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
+    $("#currentCard").hide();
+    $("#prevCard").removeClass("d-none");
+    $("#prevCard").animate({ right: "-=250" });
+    $("#prevCard").show();
+    $("#left").addClass("d-none");
+  } else if ($("#nextCard").is(":visible")) {
+    $("#nextCard").addClass("d-none");
+    $("#currentCard").show();
+    $("#right").removeClass("d-none");
+  }
+}
+
+// same as above function only to the right side
+function shiftRight() {
+  if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
+    $("#currentCard").hide();
+    $("#nextCard").removeClass("d-none");
+    $("#nextCard").animate({ left: "-=250" });
+    $("#nextCard").show();
+    $("#right").addClass("d-none");
+  } else if ($("#prevCard").is(":visible")) {
+    $("#prevCard").addClass("d-none");
+    $("#currentCard").show();
+    $("#left").removeClass("d-none");
+  }
+}
