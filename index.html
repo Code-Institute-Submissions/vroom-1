@@ -104,10 +104,10 @@
         <h1 class="text-center">Schedule Overview</h1>
 
     <div id="prev" class="col col-md-4 text-md-center position-relative">
-        <button type="button" class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 start-0 ms-2">
+        <button type="button" id="left" class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 start-0 ms-2">
         <span><i class="fas fa-caret-left"></i></span>
         </button>
-        <div class="card d-none d-md-inline-flex">
+        <div id="prevCard" class="card d-none d-md-inline-flex">
         <div class="card-body">
         <h5 id="prevCountry" class="card-title"></h5>
         <p id="prevName" class="card-text"></p>
@@ -115,7 +115,7 @@
         </div>
     </div>
     <div id="current" class=" col col-md-4 text-md-center">
-        <div class="card">
+        <div id="currentCard" class="card">
         <div class="card-body">
         <h5 id="currentCountry" class="card-title"></h5>
         <p id="currentName" class="card-text"></p>
@@ -126,7 +126,7 @@
         <button type="button" class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 end-0 me-2">
         <span><i class="fas fa-caret-right"></i></span>
         </button>
-        <div class="card d-none d-md-inline-flex">
+        <div id="nextCard" class="card d-none d-md-inline-flex">
         <div class="card-body">
         <h5 id="nextCountry" class="card-title"></h5>
         <p id="nextName" class="card-text"></p>
