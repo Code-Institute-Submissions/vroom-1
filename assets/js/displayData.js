@@ -14,7 +14,10 @@ endpoints.set("prevRace", `${endPointPrevRace}`);
 const endPointNextRace = `races?type=race&season=2021&next=1`;
 endpoints.set("nextRace", `${endPointNextRace}`);
 
+let dataFetched = localStorage.getItem("dataFetched") ? true : false;
+
 async function callAPI() {
+<<<<<<< HEAD
   // iterate Map with for..of to get data from each endpoint
   for (let [key, value] of endpoints) {
     fetch(`https://api-formula-1.p.rapidapi.com/${value}`, {
@@ -39,6 +42,44 @@ async function callAPI() {
 
 displayDriverStanding();
 displayTeamStanding();
+=======
+    // iterate Map with for..of to get data from each endpoint
+    for (let [key, value] of endpoints) {
+        fetch(`https://api-formula-1.p.rapidapi.com/${value}`, {
+            method: "GET",
+            headers: {
+                "x-rapidapi-key":
+                    "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+                "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
+            },
+        })
+            .then(async (response) => {
+                let result = await response.json();
+                let data = result.response;
+                // save to localStorage to avoid name conflicts
+                // because several endpoints have  attributes 'name', 'points', 'position' etc.
+                localStorage.setItem(`${key}`, JSON.stringify(data));
+                localStorage.setItem("dataFetched", true);
+                // add reload to fill tables with data
+                location.reload();
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+}
+
+// prevent unecessary API calls
+if (!localStorage.getItem("dataFetched")) {
+    callAPI();
+} else {
+    // only call these functions after data has been fetched
+    document.addEventListener("DOMContentLoaded", () => {
+        displayDriverStanding();
+        displayTeamStanding();
+    });
+}
+>>>>>>> dfe632a (major fix: prevent user from having to reload page to see content)
 
 // retrieve positions from localStorage and store in array
 function getDriverPosition() {
