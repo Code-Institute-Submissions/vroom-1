@@ -444,3 +444,12 @@ function shiftRight() {
         $("#left").removeClass("d-none");
     }
 }
+
+// temporarily add button to clear local storage
+// REMOVE before submitting!!!!
+let clearBtn = document.getElementById("clear-storage");
+clearBtn.addEventListener("click", clear);
+
+function clear() {
+    localStorage.clear();
+}
