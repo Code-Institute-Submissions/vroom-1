@@ -14,6 +14,8 @@ endpoints.set("prevRace", `${endPointPrevRace}`);
 const endPointNextRace = `races?type=race&season=2021&next=1`;
 endpoints.set("nextRace", `${endPointNextRace}`);
 
+let dataFetched = localStorage.getItem("dataFetched") ? true : false;
+
 async function callAPI() {
     // iterate Map with for..of to get data from each endpoint
     for (let [key, value] of endpoints) {
@@ -31,15 +33,26 @@ async function callAPI() {
                 // save to localStorage to avoid name conflicts
                 // because several endpoints have  attributes 'name', 'points', 'position' etc.
                 localStorage.setItem(`${key}`, JSON.stringify(data));
+                localStorage.setItem("dataFetched", true);
+                // add reload to fill tables with data
+                location.reload();
             })
             .catch((err) => {
                 console.error(err);
             });
     }
 }
-callAPI();
-displayDriverStanding();
-displayTeamStanding();
+
+// prevent unecessary API calls
+if (!localStorage.getItem("dataFetched")) {
+    callAPI();
+} else {
+    // only call these functions after data has been fetched
+    document.addEventListener("DOMContentLoaded", () => {
+        displayDriverStanding();
+        displayTeamStanding();
+    });
+}
 
 // retrieve positions from localStorage and store in array
 function getDriverPosition() {
