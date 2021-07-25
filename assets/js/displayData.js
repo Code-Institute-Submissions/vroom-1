@@ -424,6 +424,9 @@ moveRight.addEventListener("click", shiftRight);
 // hide the card currently displayed, show card left from it
 // and remove 'left' button if the card for previous race is displayed
 function shiftLeft() {
+    if ($(window).width() > 768) {
+        return;
+    }
     if (
         $("#prevCard").hasClass("d-none") &&
         $("#nextCard").hasClass("d-none")
@@ -442,6 +445,9 @@ function shiftLeft() {
 
 // same as above function only to the right side
 function shiftRight() {
+    if ($(window).width() > 768) {
+        return;
+    }
     if (
         $("#prevCard").hasClass("d-none") &&
         $("#nextCard").hasClass("d-none")
