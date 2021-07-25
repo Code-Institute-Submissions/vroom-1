@@ -421,7 +421,9 @@ function getRaceInfo() {
 // fill cards with data
 function displayScheduleOverview(status, country, city, rName, rDate) {
     let cardHeading = document.getElementById(`${status}Country`);
-    cardHeading.innerHTML = `${country}, ${city}`;
+    // avoid comma for dates with 'no current race'
+    cardHeading.innerText = `${country}
+    ${city}`;
     let cardBody = document.getElementById(`${status}Name`);
     // use innerText instead of innerHTML to keep newLine
     cardBody.innerText = `${rName}
