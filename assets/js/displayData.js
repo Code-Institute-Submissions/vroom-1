@@ -174,7 +174,7 @@ function addTeams() {
 console.log(endpoints);
 console.log(JSON.parse(localStorage.getItem("racerRankings")));
 console.log(JSON.parse(localStorage.getItem("constructorRankings")));
-console.log(JSON.parse(localStorage.getItem("nextRace")));
+//console.log(JSON.parse(localStorage.getItem("nextRace")));
 console.log(JSON.parse(localStorage.getItem("currentRace")));
 console.log(JSON.parse(localStorage.getItem("prevRace")));
 
@@ -369,12 +369,28 @@ $("#mcLaren").on("click", function () {
 });
 
 function getRaceInfo() {
+    const noRace = [
+        {
+            date: dateForCall,
+            competition: {
+                id: 0,
+                name: "",
+                location: {
+                    country: "No current race",
+                    city: "",
+                },
+            },
+        },
+    ];
     // create Map to pair races with status 'prev', 'current' or 'next'
     const races = new Map();
-    //let currentRace = JSON.parse(localStorage.getItem("currentRace"));
+    let currentRace = JSON.parse(localStorage.getItem("currentRace"));
+    if (currentRace.length === 0) {
+        currentRace = noRace;
+    }
     let prevRace = JSON.parse(localStorage.getItem("prevRace"));
     let nextRace = JSON.parse(localStorage.getItem("nextRace"));
-    //races.set(currentRace, "current");
+    races.set(currentRace, "current");
     races.set(prevRace, "prev");
     races.set(nextRace, "next");
 
