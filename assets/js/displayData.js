@@ -450,9 +450,21 @@ function shiftLeft() {
         $("#nextCard").hasClass("d-none")
     ) {
         $("#currentCard").hide();
-        $("#prevCard").removeClass("d-none");
-        $("#prevCard").animate({ right: "-=250" });
-        $("#prevCard").show();
+        $("#prevCard").removeClass("d-none").show();
+        switch ($(window).width()) {
+            case 320:
+                $("#prevCard").css("transform", "translateX(20%");
+                break;
+            case 375:
+                $("#prevCard").css("transform", "translateX(30%");
+                break;
+            case 412:
+                $("#prevCard").css("transform", "translateX(45%");
+                break;
+            case 425:
+                $("#prevCard").css("transform", "translateX(40%");
+                break;
+        }
         $("#left").addClass("d-none");
     } else if ($("#nextCard").is(":visible")) {
         $("#nextCard").addClass("d-none");
@@ -471,9 +483,21 @@ function shiftRight() {
         $("#nextCard").hasClass("d-none")
     ) {
         $("#currentCard").hide();
-        $("#nextCard").removeClass("d-none");
-        $("#nextCard").animate({ left: "-=250" });
-        $("#nextCard").show();
+        $("#nextCard").removeClass("d-none").show();
+        switch ($(window).width()) {
+            case 320:
+                $("#nextCard").css("transform", "translateX(-20%");
+                break;
+            case 375:
+                $("#nextCard").css("transform", "translateX(-30%");
+                break;
+            case 412:
+                $("#nextCard").css("transform", "translateX(-45%");
+                break;
+            case 425:
+                $("#nextCard").css("transform", "translateX(-40%");
+                break;
+        }
         $("#right").addClass("d-none");
     } else if ($("#prevCard").is(":visible")) {
         $("#prevCard").addClass("d-none");
