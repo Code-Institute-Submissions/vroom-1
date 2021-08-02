@@ -64,12 +64,12 @@
         <h1 class="mt-5 pt-5 text-center">F1 2021 Full Schedule</h1>
         <div id="round1" class="row card-wrapper mb-3">
             <div class="col col-md-6 col-lg-4">
-                <div class="card border-secondary">
+                <div class="card location border-secondary">
                     <div class="card-body schedule-card">
-                        <h4>Round</h4>
-                        <h5>date, country</h5>
-                        <p>full name</p>
-                        <p>placeholder for image
+                        <h4 class="roundNumber">Round</h4>
+                        <h5 class="dateCountry">date, country</h5>
+                        <p class="raceName">full name</p>
+                        <p class="overview">placeholder for image
                             <img src="test.jpg" class="card-img-bottom" alt="...">
                         </p>
 
@@ -78,21 +78,21 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
-                <div class="card border-secondary d-none d-md-inline-flex">
+                <div class="card times border-secondary d-none d-md-inline-flex">
                     <div class="card-body schedule-card">
-                        <p>date, time, race</p>
-                        <p>date, time, qualifying, more text to test width</p>
-                        <p>date, time, p3</p>
-                        <p>date, time, p2</p>
-                        <p>date, time, p1</p>
+                        <p class="raceData">date, time, race</p>
+                        <p class="qualifyingData">date, time, qualifying, more text to test width</p>
+                        <p class="p3Data">date, time, p3</p>
+                        <p class="p2Data">date, time, p2</p>
+                        <p class="p1Data">date, time, p1</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card border-secondary d-none d-lg-inline-flex">
+                <div class="card prevResults border-secondary d-none d-lg-inline-flex">
                     <div class="card-body schedule-card">
-                        <h4>previous rounds</h4>
-                        <h5>Pos, Name, Time</h5>
+                        <h4 class="prevRound">previous rounds</h4>
+                        <h5 class="prevRoundData">Pos, Name, Time</h5>
                     </div>
                 </div>
             </div>
@@ -141,7 +141,7 @@
         crossorigin="anonymous"></script>
 
     <!--displayData Script file-->
-    <script src="schedule.js"></script>
+    <script src="assets/js/schedule.js"></script>
 </body>
 
 </html>
