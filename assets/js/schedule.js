@@ -30,18 +30,40 @@ if (!localStorage.getItem("racesFetched")) {
     // only call these functions after data has been fetched
     document.addEventListener("DOMContentLoaded", () => {
         // add functions here
+        removeCancelledRaces();
     });
 }
 
-let data = JSON.parse(localStorage.getItem("allRaces"));
-console.log(data);
+// local variables
+const data = JSON.parse(localStorage.getItem("allRaces"));
+const races = [];
 
-// clone element with three cards for round 1 for rounds 2 - 23 and update ID
+// local functions
+function removeCancelledRaces() {
+    for (const entry of data.results) {
+        let status = entry.status;
+        if (
+            (!races.includes(entry) && status === "Complete") ||
+            (!races.includes(entry) && status === "Confirmed")
+        ) {
+            races.push(entry);
+        }
+    }
+    return races;
+}
+
+// elements
 const round = document.getElementById("round1");
 const scheduleContainer = document.getElementById("fullSchedule");
-// replace i <= 23 with < races.length later
-for (let i = 2; i <= 22; i++) {
+
+// clone element with three cards for round 1 for rounds 2 - 23 and update ID
+for (let i = 2; i < 22; i++) {
     let cardsClone = round.cloneNode(true);
     cardsClone.id = `round${i}`;
     scheduleContainer.appendChild(cardsClone);
 }
+
+// console.logs: remove before submitting!
+console.log(data);
+console.log(races);
+console.log(data.results);
