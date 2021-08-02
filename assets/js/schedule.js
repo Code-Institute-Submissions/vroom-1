@@ -37,6 +37,7 @@ if (!localStorage.getItem("racesFetched")) {
 // local variables
 const data = JSON.parse(localStorage.getItem("allRaces"));
 const races = [];
+let queryResults = [];
 
 // local functions
 function removeCancelledRaces() {
@@ -52,18 +53,30 @@ function removeCancelledRaces() {
     return races;
 }
 
+function clearData() {
+    queryResults = [];
+}
+
+function getData(query) {
+    clearData();
+    for (const entry of races) {
+        let queryResult = entry[query];
+        queryResults.push(queryResult);
+    }
+    return queryResults;
+}
+
 // elements
 const round = document.getElementById("round1");
 const scheduleContainer = document.getElementById("fullSchedule");
 
 // clone element with three cards for round 1 for rounds 2 - 23 and update ID
-for (let i = 2; i < 22; i++) {
+for (let i = 2; i < 23; i++) {
     let cardsClone = round.cloneNode(true);
     cardsClone.id = `round${i}`;
     scheduleContainer.appendChild(cardsClone);
 }
 
 // console.logs: remove before submitting!
-console.log(data);
+//console.log(data);
 console.log(races);
-console.log(data.results);
