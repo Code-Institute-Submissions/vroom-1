@@ -34,6 +34,11 @@ if (!localStorage.getItem("racesFetched")) {
         addRound();
         add1RoundData("raceName", "name");
         add2RoundData("dateCountry", "end_date", "country");
+        addSessionTimes("raceData", 7);
+        addSessionTimes("qualifyingData", 3);
+        addSessionTimes("p3Data", 2);
+        addSessionTimes("p2Data", 1);
+        addSessionTimes("p1Data", 0);
     });
 }
 
@@ -41,6 +46,7 @@ if (!localStorage.getItem("racesFetched")) {
 const data = JSON.parse(localStorage.getItem("allRaces"));
 const races = [];
 let queryResults = [];
+let sessionData = [];
 
 // local functions
 function removeCancelledRaces() {
@@ -58,6 +64,7 @@ function removeCancelledRaces() {
 
 function clearData() {
     queryResults = [];
+    sessionData = [];
 }
 
 function getData(query) {
@@ -89,6 +96,29 @@ function add2RoundData(className, query1, query2) {
     for (let i = 0; i < races.length; i++) {
         let element = document.getElementsByClassName(className);
         element[i].innerText = `${getData(query1)[i]} ${getData(query2)[i]}`;
+    }
+}
+
+function getSessionDetails(sessionNumber) {
+    clearData();
+    for (const entry of races) {
+        let sessionDetails = `${entry.sessions[sessionNumber].date.slice(
+            0,
+            10
+        )} ${entry.sessions[sessionNumber].date.slice(11, 19)}`;
+
+        sessionData.push(sessionDetails);
+    }
+    return sessionData;
+}
+
+function addSessionTimes(session, sessionNumber) {
+    for (let i = 0; i < races.length; i++) {
+        let test = document.getElementsByClassName(`${session}`);
+        test[i].innerText = `${
+            session[0].toUpperCase() + session.substr(1).slice(0, -4)
+        } starts at
+    ${getSessionDetails(sessionNumber)[i]}`;
     }
 }
 
