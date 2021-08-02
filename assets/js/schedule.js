@@ -31,6 +31,9 @@ if (!localStorage.getItem("racesFetched")) {
     document.addEventListener("DOMContentLoaded", () => {
         // add functions here
         removeCancelledRaces();
+        addRound();
+        add1RoundData("raceName", "name");
+        add2RoundData("dateCountry", "end_date", "country");
     });
 }
 
@@ -58,12 +61,35 @@ function clearData() {
 }
 
 function getData(query) {
+    // empty array that holds query data to prevent wrong data being accessed
     clearData();
     for (const entry of races) {
+        // use bracket notation to prevent errors for queries unsuited for dot notation
         let queryResult = entry[query];
         queryResults.push(queryResult);
     }
     return queryResults;
+}
+
+function addRound() {
+    for (let i = 0; i < races.length; i++) {
+        let numberOfRound = document.getElementsByClassName("roundNumber");
+        numberOfRound[i].innerText = `Round ${i + 1}`;
+    }
+}
+
+function add1RoundData(className, query) {
+    for (let i = 0; i < races.length; i++) {
+        let element = document.getElementsByClassName(className);
+        element[i].innerText = `${getData(query)[i]}`;
+    }
+}
+
+function add2RoundData(className, query1, query2) {
+    for (let i = 0; i < races.length; i++) {
+        let element = document.getElementsByClassName(className);
+        element[i].innerText = `${getData(query1)[i]} ${getData(query2)[i]}`;
+    }
 }
 
 // elements
