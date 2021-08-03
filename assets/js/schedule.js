@@ -1,5 +1,6 @@
-// create variable to check whether data from API has been stored to local storage
+// create variable to check whether data from two different APIs has been stored to local storage
 let racesFetched = localStorage.getItem("racesFetched") ? true : false;
+let tracksFetched = localStorage.getItem("tracksFetched") ? true : false;
 
 // call 2nd API to get the full schedule with one API call
 async function getFullSchedule() {
@@ -17,6 +18,30 @@ async function getFullSchedule() {
             localStorage.setItem("racesFetched", true);
             // add reload to ensure that data is available for functions
             location.reload();
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+    getRaceTrack();
+}
+
+// call 1st API to get track names and images
+function getRaceTrack() {
+    fetch(`https://api-formula-1.p.rapidapi.com/circuits?`, {
+        method: "GET",
+        headers: {
+            "x-rapidapi-key":
+                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
+        },
+    })
+        .then(async (res) => {
+            let trackResult = await res.json();
+            let details = trackResult.response;
+
+            localStorage.setItem(`tracks`, JSON.stringify(details));
+            localStorage.setItem("tracksFetched", true);
+            console.log("tracks stored");
         })
         .catch((err) => {
             console.error(err);
@@ -44,6 +69,7 @@ if (!localStorage.getItem("racesFetched")) {
 
 // local variables
 const data = JSON.parse(localStorage.getItem("allRaces"));
+const tracks = JSON.parse(localStorage.getItem("tracks"));
 const races = [];
 let queryResults = [];
 let sessionData = [];
@@ -136,3 +162,4 @@ for (let i = 2; i < 23; i++) {
 // console.logs: remove before submitting!
 //console.log(data);
 console.log(races);
+console.log(tracks);
