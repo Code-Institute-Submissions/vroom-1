@@ -57,8 +57,8 @@ if (!localStorage.getItem("racesFetched")) {
         // add functions here
         removeCancelledRaces();
         addRound();
-        add1RoundData("raceName", "name");
-        add2RoundData("dateCountry", "end_date", "country");
+        addRoundData("raceName", "name");
+        addRoundData("dateCountry", "end_date", "country");
         addSessionTimes("raceData", 7);
         addSessionTimes("qualifyingData", 3);
         addSessionTimes("p3Data", 2);
@@ -111,17 +111,12 @@ function addRound() {
     }
 }
 
-function add1RoundData(className, query) {
+function addRoundData(className, query1, query2 = null) {
     for (let i = 0; i < races.length; i++) {
         let element = document.getElementsByClassName(className);
-        element[i].innerText = `${getData(query)[i]}`;
-    }
-}
-
-function add2RoundData(className, query1, query2) {
-    for (let i = 0; i < races.length; i++) {
-        let element = document.getElementsByClassName(className);
-        element[i].innerText = `${getData(query1)[i]} ${getData(query2)[i]}`;
+        element[i].innerText = `${getData(query1)[i]} ${
+            query2 ? getData(query2)[i] : ""
+        }`;
     }
 }
 
