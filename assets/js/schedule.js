@@ -64,6 +64,8 @@ if (!localStorage.getItem("racesFetched")) {
         addSessionTimes("p3Data", 2);
         addSessionTimes("p2Data", 1);
         addSessionTimes("p1Data", 0);
+        // needs to be called last due to uncaught TypeError. Please see readme for details!
+        addTrackMap("overview", "country");
     });
 }
 
@@ -117,6 +119,27 @@ function addRoundData(className, query1, query2 = null) {
         element[i].innerText = `${getData(query1)[i]} ${
             query2 ? getData(query2)[i] : ""
         }`;
+    }
+}
+
+function addTrackMap(className, query) {
+    for (let i = 0; i <= tracks.length; i++) {
+        // needs to use getData and the races-array to get the correct entry matching the round number!
+        let raceCountry = `${getData(query)[i]}`;
+        // search the tracks-array and return the object corresponding to the query
+        const findTrack = tracks.find(
+            (track) => track.competition.location.country === raceCountry
+        );
+        // pull the track name from the object
+        const trackName = findTrack.name;
+        // pull the imageURL from the object
+        // Will cause an uncaught TypeError for some races! Please see readme for details!
+        const trackMap = findTrack.image;
+        const html = `<p>${trackName}
+        <img src='${trackMap}' class="img-fluid" alt="Track map">
+        </p>`;
+        let element = document.getElementsByClassName(className);
+        element[i].innerHTML = html;
     }
 }
 
