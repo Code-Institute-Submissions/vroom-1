@@ -87,6 +87,7 @@ function removeCancelledRaces() {
             races.push(entry);
         }
     }
+    createRoundWrappers();
     return races;
 }
 
@@ -171,10 +172,12 @@ const round = document.getElementById("round1");
 const scheduleContainer = document.getElementById("fullSchedule");
 
 // clone element with three cards for round 1 for rounds 2 - 23 and update ID
-for (let i = 2; i < 23; i++) {
-    let cardsClone = round.cloneNode(true);
-    cardsClone.id = `round${i}`;
-    scheduleContainer.appendChild(cardsClone);
+function createRoundWrappers() {
+    for (let i = 2; i < 23; i++) {
+        let cardsClone = round.cloneNode(true);
+        cardsClone.id = `round${i}`;
+        scheduleContainer.appendChild(cardsClone);
+    }
 }
 
 // console.logs: remove before submitting!
