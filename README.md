@@ -63,7 +63,9 @@ Differences in the deployed version:
 [Wireframes for contact.html](wireframes/contact.png)
 ![wireframes for contact.html](wireframes/contact.png)
 Differences in the deployed version:
-**Add description**
+
+-   The elements with information about each race in the 2021 season have been moved to a separate page. The layout hasn't changed, therefore I didn't create a new wireframe.
+-   The display of the first three places from the previous year for each race has been removed from the project. It would have added at least 22 more API calls. Furthermore, neither one of the two APIs I'm using provides suitable endpoints.
 
 ## **Features**
 
