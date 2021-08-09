@@ -169,6 +169,14 @@ Differences in the deployed version:
 
 **to be added**
 
+### **Media**
+
+The following photos used for this project were obtained from [Unsplash](https://unsplash.com).
+
+#### schedule.html
+
+Nürburgring: Photo by [Jan Ivo Henze](https://unsplash.com/@jan_ivo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/racetrack?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+
 ### **Acknowledgements**
 
 **to be added**
