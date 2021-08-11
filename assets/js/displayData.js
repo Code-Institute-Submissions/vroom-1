@@ -14,8 +14,6 @@ endpoints.set("prevRace", `${endPointPrevRace}`);
 const endPointNextRace = `races?type=race&season=2021&next=1`;
 endpoints.set("nextRace", `${endPointNextRace}`);
 
-let dataFetched = localStorage.getItem("dataFetched") ? true : false;
-
 async function callAPI() {
     // iterate Map with for..of to get data from each endpoint
     for (let [key, value] of endpoints) {
@@ -33,8 +31,8 @@ async function callAPI() {
                 // save to localStorage to avoid name conflicts
                 // because several endpoints have  attributes 'name', 'points', 'position' etc.
                 localStorage.setItem(`${key}`, JSON.stringify(data));
-                localStorage.setItem("dataFetched", true);
-                // add reload to fill tables with data
+
+                // add reload to prevent error message for getRaceInfo()
                 location.reload();
             })
             .catch((err) => {
@@ -42,16 +40,32 @@ async function callAPI() {
             });
     }
 }
-
-// prevent unecessary API calls
-if (!localStorage.getItem("dataFetched")) {
-    callAPI();
-} else {
-    // only call these functions after data has been fetched
-    document.addEventListener("DOMContentLoaded", () => {
-        displayDriverStanding();
-        displayTeamStanding();
-    });
+checkAllDataReceived();
+// check that all data are fetched and prevent unecessary API calls
+function checkAllDataReceived() {
+    let currentRaceFetched = localStorage.getItem("currentRace") ? true : false;
+    let nextRaceFetched = localStorage.getItem("nextRace") ? true : false;
+    let prevRaceFetched = localStorage.getItem("prevRace") ? true : false;
+    let driversFetched = localStorage.getItem("racerRankings") ? true : false;
+    let teamsFetched = localStorage.getItem("constructorRankings")
+        ? true
+        : false;
+    let allDataFetched =
+        currentRaceFetched &&
+        prevRaceFetched &&
+        nextRaceFetched &&
+        driversFetched &&
+        teamsFetched;
+    if (!allDataFetched) {
+        callAPI();
+    } else {
+        // only call these functions after data has been fetched
+        document.addEventListener("DOMContentLoaded", () => {
+            displayDriverStanding();
+            displayTeamStanding();
+            getRaceInfo();
+        });
+    }
 }
 
 // retrieve positions from localStorage and store in array
@@ -430,8 +444,6 @@ function displayScheduleOverview(status, country, city, rName, rDate) {
     ${rDate}
     `;
 }
-
-getRaceInfo();
 
 // add eventListeners to buttons
 let moveLeft = document.getElementById("left");
