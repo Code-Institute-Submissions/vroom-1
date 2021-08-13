@@ -9,6 +9,33 @@ body {
     background-color: #96adc8;
 }
 
+.mercedes-shadow {
+    color: #000;
+    text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0,
+        1px 2px 1px #eee, 3px 2px 1px #c0c0c0, 2px 3px 1px #eee,
+        4px 3px 1px #c0c0c0, 3px 4px 1px #eee, 5px 4px 1px #c0c0c0,
+        4px 5px 1px #eee, 6px 5px 1px #c0c0c0, 5px 6px 1px #eee,
+        7px 6px 1px #c0c0c0;
+}
+
+.rb-shadow {
+    color: #001e3c;
+    text-shadow: 1px 0px 1px #fcd800, 0px 1px 1px #fff3ad, 2px 1px 1px #fcd800,
+        1px 2px 1px #fff3ad, 3px 2px 1px #fcd800, 2px 3px 1px #fff3ad,
+        4px 3px 1px #fcd800, 3px 4px 1px #fff3ad, 5px 4px 1px #fcd800,
+        4px 5px 1px #fff3ad, 6px 5px 1px #fcd800, 5px 6px 1px #fff3ad,
+        7px 6px 1px #fcd800;
+}
+
+.mcLaren-shadow {
+    color: #1e2d7a;
+    text-shadow: 1px 0px 1px #ff8700, 0px 1px 1px #ffe2c2, 2px 1px 1px #ff8700,
+        1px 2px 1px #ffe2c2, 3px 2px 1px #ff8700, 2px 3px 1px #ffe2c2,
+        4px 3px 1px #ff8700, 3px 4px 1px #ffe2c2, 5px 4px 1px #ff8700,
+        4px 5px 1px #ffe2c2, 6px 5px 1px #ff8700, 5px 6px 1px #ffe2c2,
+        7px 6px 1px #ff8700;
+}
+
 .bigger-font {
     font-size: 1.5em;
 }
