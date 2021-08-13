@@ -31,7 +31,8 @@ async function callAPI() {
                 // save to localStorage to avoid name conflicts
                 // because several endpoints have  attributes 'name', 'points', 'position' etc.
                 localStorage.setItem(`${key}`, JSON.stringify(data));
-
+                // use dayjs to prevent syntax error in checkAllDataReceived function
+                localStorage.setItem("fetchDate", dayjs());
                 // add reload to prevent error message for getRaceInfo()
                 location.reload();
             })
@@ -59,12 +60,41 @@ function checkAllDataReceived() {
     if (!allDataFetched) {
         callAPI();
     } else {
-        // only call these functions after data has been fetched
-        document.addEventListener("DOMContentLoaded", () => {
-            displayDriverStanding();
-            displayTeamStanding();
-            getRaceInfo();
-        });
+        let fetchDate = localStorage.getItem("fetchDate");
+        let nextRace = JSON.parse(localStorage.getItem("nextRace"));
+        let nextRaceDate = nextRace[0].date;
+        let prevRace = JSON.parse(localStorage.getItem("prevRace"));
+        let prevRaceDate = prevRace[0].date;
+        // calculate the difference in days between today and the last day the data were fetched
+        const diffFetchDateToToday = dayjs(today).diff(dayjs(fetchDate), "day");
+        // calculate the difference in days between today and the date of the next race
+        const diffNextRaceToToday = dayjs(nextRaceDate).diff(
+            dayjs(today),
+            "day"
+        );
+        const diffprevRaceToToday = dayjs(today).diff(
+            dayjs(prevRaceDate),
+            "day"
+        );
+        // call the API again if:
+        // the date is older than 6 days or if
+        // there is a race today or if
+        // there has been a race on the previous day
+        if (
+            diffFetchDateToToday >= 6 ||
+            diffNextRaceToToday === 0 ||
+            diffNextRaceToToday === 1
+        ) {
+            callAPI();
+            console.log("refreshed API data");
+        } else {
+            // only call these functions after data has been fetched
+            document.addEventListener("DOMContentLoaded", () => {
+                displayDriverStanding();
+                displayTeamStanding();
+                getRaceInfo();
+            });
+        }
     }
 }
 
