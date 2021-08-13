@@ -6,6 +6,7 @@
 
 body {
     color: #141414;
+    background-color: #96adc8;
 }
 
 .bigger-font {
@@ -53,4 +54,6 @@ body {
 
 .card-body {
     min-width: 210px;
+    min-height: 136px;
+    background-color: #e6f4f1;
 }
