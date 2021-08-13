@@ -91,6 +91,7 @@ Differences in the deployed version:
 
 -   [Bootstrap 5.0.1](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 -   [jQuery 3.6.0](https://jquery.com/)
+-   [Day.js 1.10.6](https://day.js.org/en/)
 -   [Google Fonts](https://fonts.google.com/)
 -   [Font Awesome](https://fontawesome.com/)
 
@@ -103,6 +104,7 @@ Differences in the deployed version:
 -   [Sizzy](https://sizzy.co/)
 -   [Balsamiq](https://balsamiq.com/)
 -   [Coolors colour palette generator](https://coolors.co/)
+-   [mycolor.space](https://mycolor.space/)
 -   [Techsini](http://techsini.com/multi-mockup/)
 -   [Am I Responsive?](http://ami.responsivedesign.is/#)
 -   [Google Cloud Platform](https://cloud.google.com/)
