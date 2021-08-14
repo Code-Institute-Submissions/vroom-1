@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>F1 2021 full schedule</title>
+    <link rel="shortcut icon" type="image/jpg" href="./assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f2a080f561.js" crossorigin="anonymous"></script>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!--Load jQuery...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Vroom</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#schedule-overview">Schedule overview</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Standings
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="index.html#drivers">Drivers</a></li>
+                                <li><a class="dropdown-item" href="index.html#constructors">Constructors</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="schedule.html">Full Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Schedule -->
+    <div id="fullSchedule" class="container-fluid">
+        <h1 class="mt-5 pt-5 text-center">F1 2021 Full Schedule</h1>
+        <div id="round1" class="row card-wrapper mb-3">
+            <div class="col col-md-6">
+                <div class="card location border-secondary">
+                    <div class="card-body schedule-card">
+                        <h4 class="roundNumber">Round</h4>
+                        <h5 class="dateCountry">date, country</h5>
+                        <p class="raceName">full name</p>
+                        <p class="overview">Sorry, track name and image currently not retrievable.
+                            <picture>
+                                <source media="(min-width: 1400px)" srcset="./assets/images/racetrack_1366px.jpg">
+                                <source media="(min-width: 992px)" srcset="./assets/images/racetrack_768px.jpg">
+                                <img src="./assets/images/racetrack_640px.jpg" class="img-fluid placeholder-image"
+                                    alt="generic racetrack">
+                            </picture>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card times border-secondary d-none d-md-inline-flex">
+                    <div class="card-body schedule-card">
+                        <p class="raceData">date, time, race</p>
+                        <p class="qualifyingData">date, time, qualifying, more text to test width</p>
+                        <p class="p3Data">date, time, p3</p>
+                        <p class="p2Data">date, time, p2</p>
+                        <p class="p1Data">date, time, p1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullSchedule" class="container-fluid">
+
+    </div>
+    <!-- Footer -->
+    <footer class="container-fluid footer bg-dark text-white py-2">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h3 class="text-center">Find us on:</h3>
+                <ul class="list-inline">
+                    <li class="list-inline-item mx-2 mx-sm-4">
+                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                            <span class="sr-only sr-only-focusable">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-2 me-sm-4">
+                        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                            <span class="sr-only sr-only-focusable">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item me-2 me-sm-4">
+                        <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                            <span class="sr-only sr-only-focusable">Youtube</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center copyright">
+                <p>&copy; Copyright 2021 - Scott Boening.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+    <!--displayData Script file-->
+    <script src="assets/js/schedule.js"></script>
+</body>
+
+</html>
