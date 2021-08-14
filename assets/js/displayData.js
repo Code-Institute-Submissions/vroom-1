@@ -433,6 +433,19 @@ $("#mcLaren").on("click", function () {
         .css("border", "1px #443E47 solid");
 });
 
+$("#default").on("click", function () {
+    $("#driverStandings").addClass("table-primary");
+    $("#teamStandings").addClass("table-primary");
+    $("h1")
+        .removeClass("mercedes-shadow")
+        .removeClass("rb-shadow")
+        .removeClass("mcLaren-shadow");
+    $("td, th")
+        .css("background-color", "#CFE2FF")
+        .css("color", "#000")
+        .css("border", "none");
+});
+
 function getRaceInfo() {
     const noRace = [
         {
