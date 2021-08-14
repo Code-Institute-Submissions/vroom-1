@@ -239,7 +239,7 @@ function displayTeamStanding() {
 
 // show modal with details for selected driver
 function moreInfo() {
-    var driverModal = new bootstrap.Modal(document.getElementById("moreInfo"), {
+    var infoModal = new bootstrap.Modal(document.getElementById("moreInfo"), {
         keyboard: true,
         focus: true,
         backdrop: true,
@@ -248,7 +248,25 @@ function moreInfo() {
     searchDriver(name);
     console.log(JSON.parse(localStorage.getItem(`${name}`)));
 
-    driverModal.show();
+    infoModal.show();
+}
+
+// show modal with details for selected team
+function moreTeamInfo() {
+    var teamInfoModal = new bootstrap.Modal(
+        document.getElementById("moreTeamInfo"),
+        {
+            keyboard: true,
+            focus: true,
+            backdrop: true,
+        }
+    );
+    // use id to prevent null-return for Mercedes-AMG Petronas
+    let id = this.id;
+    searchConstructor(id);
+    console.log(JSON.parse(localStorage.getItem(`${id}`)));
+
+    teamInfoModal.show();
 }
 
 // get driver info and save data for modal to localStorage
@@ -281,6 +299,45 @@ function searchDriver(name) {
         });
 }
 
+// get constructor info and save data for modal to localStorage
+// use id instead of name to prevent error due to hyphen in Mercedes team name
+function searchConstructor(id) {
+    fetch(`https://api-formula-1.p.rapidapi.com/teams?search=${id}`, {
+        method: "GET",
+        headers: {
+            "x-rapidapi-key":
+                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
+        },
+    })
+        .then(async (res) => {
+            let constructorResult = await res.json();
+            let constructorDetails = constructorResult.response;
+
+            localStorage.setItem(`${id}`, JSON.stringify(constructorDetails));
+            let constructorInfo = JSON.parse(localStorage.getItem(`${id}`));
+            let imageURL = constructorInfo[0].logo;
+            let teamFullName = constructorInfo[0].name;
+            let director = constructorInfo[0].director;
+            let technicalManager = constructorInfo[0].technical_manager;
+            let engine = constructorInfo[0].engine;
+            let modalHeading = teamFullName;
+            let teamDirector = `Director: ${director}`;
+            let teamManager = `Technical manager: ${technicalManager}`;
+            let teamEngine = `Engine: ${engine}`;
+            writeToTeamModal(
+                modalHeading,
+                teamDirector,
+                teamManager,
+                teamEngine,
+                imageURL
+            );
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+}
+
 function writeToModal(name, date, nationality, photo) {
     let modalHeading = document.getElementById("fullName");
     let heading = document.getElementById("moreInfoLabel");
@@ -298,6 +355,28 @@ function writeToModal(name, date, nationality, photo) {
     let driverPhoto = document.getElementById("pic");
     $("#pic").attr("src", photo);
     modalBody.append(driverPhoto);
+}
+
+function writeToTeamModal(name, director, manager, engine, logo) {
+    let modalHeading = document.getElementById("teamFullName");
+    let heading = document.getElementById("moreTeamInfoLabel");
+    heading.innerHTML = name;
+    modalHeading.prepend(heading);
+
+    let modalBody = document.getElementById("teamDetails");
+    let detail1 = document.getElementById("director");
+    detail1.innerHTML = director;
+    modalBody.append(detail1);
+    let detail2 = document.getElementById("technicalManager");
+    detail2.innerHTML = manager;
+    modalBody.append(detail2);
+    let detail3 = document.getElementById("engine");
+    detail3.innerHTML = engine;
+    modalBody.append(detail3);
+
+    let teamLogo = document.getElementById("logo");
+    $("#logo").attr("src", logo);
+    modalBody.append(teamLogo);
 }
 
 // TODO: make functions for driverstandings acccept parameters to be usable for teamstandings!
@@ -372,7 +451,14 @@ function addConstructors() {
     constructors.forEach((constructor) => {
         let row = document.getElementById("teamEntry");
         let cellConstructor = document.createElement("td");
+        cellConstructor.addEventListener("click", moreTeamInfo);
         cellConstructor.innerHTML = constructor;
+        // shorten id to prevent error from API due to hyphen in Mercedes team name
+        if (constructor === "Mercedes-AMG Petronas") {
+            cellConstructor.id = "Mercedes";
+        } else {
+            cellConstructor.id = constructor;
+        }
         row.appendChild(cellConstructor);
         bodyTeamStandings.appendChild(row);
     });
