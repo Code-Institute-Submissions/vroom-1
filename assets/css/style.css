@@ -9,6 +9,10 @@ body {
     background-color: #96adc8;
 }
 
+.simple-shadow {
+    text-shadow: 1px 1px 2px #c0c0c0;
+}
+
 .mercedes-shadow {
     color: #000;
     text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0,
