@@ -57,6 +57,14 @@ caption,
     color: #303030;
 }
 
+.social-link {
+    color: #fff;
+}
+
+.fab {
+    font-size: 1.5em;
+}
+
 .contact-bg {
     min-height: 100vh;
     background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50%
