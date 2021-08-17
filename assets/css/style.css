@@ -48,6 +48,10 @@ body {
     border: 10px #4e657e ridge;
 }
 
+.portrait-border {
+    border: 3px #4e657e ridge;
+}
+
 .bigger-font {
     font-size: 1.5em;
 }
