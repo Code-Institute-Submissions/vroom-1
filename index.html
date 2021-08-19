@@ -75,18 +75,18 @@
                     class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 start-0 translate-middle-y ms-2">
                     <span><i class="fas fa-caret-left"></i></span>
                 </button>
-                <div id="prevCard" class="card d-none d-md-inline-flex">
+                <div id="prevCard" class="card img-shadow d-none d-md-inline-flex">
                     <div class="card-body">
-                        <h5 id="prevCountry" class="card-title"></h5>
-                        <p id="prevName" class="card-text"></p>
+                        <h5 id="prevCountry" class="card-title simple-shadow"></h5>
+                        <p id="prevName" class="card-text simple-shadow"></p>
                     </div>
                 </div>
             </div>
             <div id="current" class="col col-md-4 text-md-center">
-                <div id="currentCard" class="card">
+                <div id="currentCard" class="card img-shadow">
                     <div class="card-body">
-                        <h5 id="currentCountry" class="card-title"></h5>
-                        <p id="currentName" class="card-text"></p>
+                        <h5 id="currentCountry" class="card-title simple-shadow"></h5>
+                        <p id="currentName" class="card-text simple-shadow"></p>
                     </div>
                 </div>
             </div>
@@ -95,10 +95,10 @@
                     class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 end-0 translate-middle-y me-2">
                     <span><i class="fas fa-caret-right"></i></span>
                 </button>
-                <div id="nextCard" class="card d-none d-md-inline-flex">
+                <div id="nextCard" class="card img-shadow d-none d-md-inline-flex">
                     <div class="card-body">
-                        <h5 id="nextCountry" class="card-title"></h5>
-                        <p id="nextName" class="card-text"></p>
+                        <h5 id="nextCountry" class="card-title simple-shadow"></h5>
+                        <p id="nextName" class="card-text simple-shadow"></p>
                     </div>
                 </div>
             </div>
@@ -108,13 +108,16 @@
     <div id="themeSelectors" class="row text-center my-4">
         <div class="col-12 fs-3">Choose your favourite team or revert to default theme:</div>
         <div class="col-12 col-md-3"><button type="button" id="mercedes"
-                class="btn btn-info col-8 theme">Mercedes</button>
+                class="btn btn-info col-8 simple-shadow theme">Mercedes</button>
         </div>
-        <div class="col-12 col-md-3"><button type="button" id="redBull" class="btn btn-primary col-8 theme">Red
+        <div class="col-12 col-md-3"><button type="button" id="redBull"
+                class="btn btn-primary col-8 simple-shadow theme">Red
                 Bull</button></div>
-        <div class="col-12 col-md-3"><button type="button" id="mcLaren" class="btn btn-warning col-8 theme">McLaren
+        <div class="col-12 col-md-3"><button type="button" id="mcLaren"
+                class="btn btn-warning col-8 simple-shadow theme">McLaren
             </button></div>
-        <div class="col-12 col-md-3"><button type="button" id="default" class="btn btn-light col-8 theme">Default
+        <div class="col-12 col-md-3"><button type="button" id="default"
+                class="btn btn-light col-8 simple-shadow theme">Default
             </button>
         </div>
     </div>
@@ -124,8 +127,7 @@
         <div class="row">
             <div class="col-12 col-md-8 mx-md-auto">
                 <h1 id="drivers" class="text-center">2021 Driver Standings</h1>
-                <div><button type="button" id="clear-storage">Clear</button></div>
-
+                <p class="text-center match-caption">Click driver name for more info!</p>
                 <table id="driverStandings" class="table table-striped table-bordered table-primary table-hover">
                     <caption>2021 Driver Standings</caption>
                     <thead>
@@ -145,6 +147,7 @@
                     <div class="row">
                         <div class="col-12 col-md-8 mx-md-auto">
                             <h1 id="constructors" class="text-center">2021 Constructor Standings</h1>
+                            <p class="text-center match-caption">Click constructor name for more info!</p>
                             <table id="teamStandings"
                                 class="table table-striped table-bordered table-primary table-hover">
                                 <caption>2021 Constructor Standings</caption>
@@ -166,18 +169,18 @@
                 <div class="modal hide fade" id="moreInfo" tabindex="-1" role="dialog" aria-labelledby="moreInfoLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                            <div id=fullName class="modal-header">
-                                <h3 class="modal-title" id="moreInfoLabel">
-
+                        <div class="modal-content text-center">
+                            <div id=fullName class="modal-header simple-shadow">
+                                <h3 class="modal-title text-center" id="moreInfoLabel">
                                 </h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div id="driverDetails" class="modal-body">
-                                <p id="dateOfBirth">Modal body text goes here.</p>
+                            <div id="driverDetails" class="modal-body simple-shadow fs-5">
+                                <p id="dateOfBirth"></p>
                                 <p id="driverNationality"></p>
-                                <img id="pic" src="../images/jake-givens-freeway-traffic.jpg" alt="Picture of driver">
+                                <img id="pic" class="portrait-border" src="../images/jake-givens-freeway-traffic.jpg"
+                                    alt="Picture of driver">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -188,6 +191,33 @@
                     </div>
                 </div>
 
+                <!-- Modal with more team info -->
+                <div class="modal hide fade" id="moreTeamInfo" tabindex="-1" role="dialog"
+                    aria-labelledby="moreTeamInfoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-content text-center">
+                            <div id=teamFullName class="modal-header simple-shadow">
+                                <h3 class="modal-title" id="moreTeamInfoLabel">
+                                </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div id="teamDetails" class="modal-body simple-shadow fs-5">
+                                <p id="director"></p>
+                                <p id="technicalManager"></p>
+                                <p id="engine"></p>
+                                <!--add more suitable placeholder image-->
+                                <img id="logo" class="img-fluid" src="../images/jake-givens-freeway-traffic.jpg"
+                                    alt="Team logo">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -199,19 +229,19 @@
                 <h3 class="text-center">Find us on:</h3>
                 <ul class="list-inline">
                     <li class="list-inline-item mx-2 mx-sm-4">
-                        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a class="social-link" href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-facebook" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Facebook</span>
                         </a>
                     </li>
                     <li class="list-inline-item me-2 me-sm-4">
-                        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                        <a class="social-link" href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-twitter-square" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Twitter</span>
                         </a>
                     </li>
                     <li class="list-inline-item me-2 me-sm-4">
-                        <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                        <a class="social-link" href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Youtube</span>
                         </a>

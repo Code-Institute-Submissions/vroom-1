@@ -9,6 +9,10 @@ body {
     background-color: #96adc8;
 }
 
+.simple-shadow {
+    text-shadow: 1px 1px 2px #c0c0c0;
+}
+
 .mercedes-shadow {
     color: #000;
     text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0,
@@ -36,9 +40,35 @@ body {
         7px 6px 1px #ff8700;
 }
 
+.img-shadow {
+    box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
+}
+
+.schedule-card {
+    border: 10px #4e657e ridge;
+}
+
+.portrait-border {
+    border: 3px #4e657e ridge;
+}
+
 .bigger-font {
     font-size: 1.5em;
 }
+
+caption,
+.match-caption {
+    color: #303030;
+}
+
+.social-link {
+    color: #fff;
+}
+
+.fab {
+    font-size: 1.5em;
+}
+
 .contact-bg {
     min-height: 100vh;
     background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50%
