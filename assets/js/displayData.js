@@ -95,6 +95,7 @@ function checkAllDataReceived() {
                 displayDriverStanding();
                 displayTeamStanding();
                 getRaceInfo();
+                setTheme();
             });
         }
     }
@@ -481,8 +482,10 @@ function addTeamPoints() {
     tableTeamStandings.appendChild(bodyTeamStandings);
 }
 
-// Change text color, bg-color and add border to match the selected team
-$("#mercedes").on("click", function () {
+// Change text color, bg-color and add border to the tables to match the selected team
+// change h2 color and add text shadow to match the selected team
+// save theme to local storage
+const mercedesTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
     $("td, th")
@@ -493,9 +496,13 @@ $("#mercedes").on("click", function () {
         .removeClass("rb-shadow")
         .removeClass("mcLaren-shadow")
         .addClass("mercedes-shadow");
+    localStorage.setItem("theme", "mercedes");
+};
+$("#mercedes").on("click", function () {
+    mercedesTheme();
 });
 
-$("#redBull").on("click", function () {
+const redBullTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
     $("h1")
@@ -506,9 +513,13 @@ $("#redBull").on("click", function () {
         .css("color", "#FCD800")
         .css("background-color", "#001E3C")
         .css("border", "1px #D7061E solid");
+    localStorage.setItem("theme", "redBull");
+};
+$("#redBull").on("click", function () {
+    redBullTheme();
 });
 
-$("#mcLaren").on("click", function () {
+const mcLarenTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
     $("h1")
@@ -519,9 +530,13 @@ $("#mcLaren").on("click", function () {
         .css("color", "#FF8700")
         .css("background-color", "#1E2D7A")
         .css("border", "1px #443E47 solid");
+    localStorage.setItem("theme", "mcLaren");
+};
+$("#mcLaren").on("click", function () {
+    mcLarenTheme();
 });
 
-$("#default").on("click", function () {
+const defaultTheme = () => {
     $("#driverStandings").addClass("table-primary");
     $("#teamStandings").addClass("table-primary");
     $("h1")
@@ -532,7 +547,24 @@ $("#default").on("click", function () {
         .css("background-color", "#CFE2FF")
         .css("color", "#000")
         .css("border", "none");
+    localStorage.setItem("theme", "default");
+};
+$("#default").on("click", function () {
+    defaultTheme();
 });
+
+// set theme to default for first time visitors or apply theme stored in local storage
+function setTheme() {
+    if (localStorage.getItem("theme") === "") {
+        defaultTheme();
+    } else if (localStorage.getItem("theme") === "mercedes") {
+        mercedesTheme();
+    } else if (localStorage.getItem("theme") === "redBull") {
+        redBullTheme();
+    } else if (localStorage.getItem("theme") === "mcLaren") {
+        mcLarenTheme();
+    }
+}
 
 function getRaceInfo() {
     const noRace = [
