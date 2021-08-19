@@ -103,15 +103,44 @@ caption,
     display: none;
 }
 
+.card-body {
+    min-width: 210px;
+    min-height: 136px;
+    background-color: #e6f4f1;
+}
+
 /* ---------- Media Queries ---------- */
 @media screen and (min-width: 768px) {
     #hideOnMobile {
         display: table-cell;
     }
+    #prevCard,
+    #currentCard,
+    #nextCard {
+        min-height: 150px;
+    }
 }
 
-.card-body {
-    min-width: 210px;
-    min-height: 136px;
-    background-color: #e6f4f1;
+@media screen and (min-width: 1024px) {
+    #prevCard,
+    #currentCard,
+    #nextCard {
+        min-width: 270px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #prevCard,
+    #currentCard,
+    #nextCard {
+        min-width: 320px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    #prevCard,
+    #currentCard,
+    #nextCard {
+        min-width: 400px;
+    }
 }
