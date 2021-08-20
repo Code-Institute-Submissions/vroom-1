@@ -8,8 +8,7 @@ async function getFullSchedule() {
     fetch("https://f1-live-motorsport-data.p.rapidapi.com/races/2021", {
         method: "GET",
         headers: {
-            "x-rapidapi-key":
-                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
             "x-rapidapi-host": "f1-live-motorsport-data.p.rapidapi.com",
         },
     })
@@ -31,8 +30,7 @@ function getRaceTrack() {
     fetch(`https://api-formula-1.p.rapidapi.com/circuits?`, {
         method: "GET",
         headers: {
-            "x-rapidapi-key":
-                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
             "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
         },
     })
@@ -50,10 +48,7 @@ function getRaceTrack() {
 }
 
 // prevent unecessary API calls
-if (
-    !localStorage.getItem("racesFetched") ||
-    !localStorage.getItem("tracksFetched")
-) {
+if (!localStorage.getItem("racesFetched") || !localStorage.getItem("tracksFetched")) {
     getFullSchedule();
 } else {
     // only call these functions after data has been fetched
@@ -121,9 +116,7 @@ function addRound() {
 function addRoundData(className, query1, query2 = null) {
     for (let i = 0; i < races.length; i++) {
         let element = document.getElementsByClassName(className);
-        element[i].innerText = `${getData(query1)[i]} ${
-            query2 ? getData(query2)[i] : ""
-        }`;
+        element[i].innerText = `${getData(query1)[i]} ${query2 ? getData(query2)[i] : ""}`;
     }
 }
 
@@ -151,10 +144,9 @@ function addTrackMap(className, query) {
 function getSessionDetails(sessionNumber) {
     clearData();
     for (const entry of races) {
-        let sessionDetails = `${entry.sessions[sessionNumber].date.slice(
-            0,
-            10
-        )} ${entry.sessions[sessionNumber].date.slice(11, 19)}`;
+        let sessionDetails = `${entry.sessions[sessionNumber].date.slice(0, 10)} ${entry.sessions[
+            sessionNumber
+        ].date.slice(11, 19)}`;
 
         sessionData.push(sessionDetails);
     }
@@ -164,9 +156,7 @@ function getSessionDetails(sessionNumber) {
 function addSessionTimes(session, sessionNumber) {
     for (let i = 0; i < races.length; i++) {
         let test = document.getElementsByClassName(`${session}`);
-        test[i].innerText = `${
-            session[0].toUpperCase() + session.substr(1).slice(0, -4)
-        } starts at
+        test[i].innerText = `${session[0].toUpperCase() + session.substr(1).slice(0, -4)} starts at
     ${getSessionDetails(sessionNumber)[i]}`;
     }
 }
@@ -175,13 +165,16 @@ function addSessionTimes(session, sessionNumber) {
 const round = document.getElementById("round1");
 const scheduleContainer = document.getElementById("fullSchedule");
 
-// clone element with three cards for round 1 for rounds 2 - 23 and update ID
+// clone element with three cards for round 1 for  remaining rounds and update ID
 function createRoundWrappers() {
-    for (let i = 2; i < 23; i++) {
+    for (const entry of races) {
+        // results in 1 more entry than races due to cloning the first round
         let cardsClone = round.cloneNode(true);
-        cardsClone.id = `round${i}`;
+        cardsClone.id = `round${entry}`;
         scheduleContainer.appendChild(cardsClone);
     }
+    // remove the superflous round
+    scheduleContainer.removeChild(scheduleContainer.lastChild);
 }
 
 // console.logs: remove before submitting!
