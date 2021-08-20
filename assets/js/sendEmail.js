@@ -23,5 +23,6 @@ function sendMail(contactForm) {
                 );
             }
         );
-    return false; // To block from loading a new page
+    // To block from loading a new page
+    return false;
 }

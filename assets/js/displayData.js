@@ -72,7 +72,6 @@ function checkAllDataReceived() {
         // there has been a race on the previous day
         if (diffFetchDateToToday >= 6 || diffNextRaceToToday === 0 || diffPrevRaceToToday === 1) {
             callAPI();
-            console.log("refreshed API data");
         } else {
             // only call these functions after data has been fetched
             document.addEventListener("DOMContentLoaded", () => {
@@ -201,13 +200,6 @@ function addTeams() {
     });
     tableDriverStandings.appendChild(bodyDriverStandings);
 }
-
-console.log(endpoints);
-console.log(JSON.parse(localStorage.getItem("racerRankings")));
-console.log(JSON.parse(localStorage.getItem("constructorRankings")));
-//console.log(JSON.parse(localStorage.getItem("nextRace")));
-console.log(JSON.parse(localStorage.getItem("currentRace")));
-console.log(JSON.parse(localStorage.getItem("prevRace")));
 
 function displayDriverStanding() {
     addPositions();
@@ -352,8 +344,6 @@ function writeToTeamModal(name, director, manager, engine, logo) {
     $("#logo").attr("src", logo);
     modalBody.append(teamLogo);
 }
-
-// TODO: make functions for driverstandings acccept parameters to be usable for teamstandings!
 
 // retrieve team positions from localStorage and store in array
 function getTeamPosition() {
@@ -552,12 +542,6 @@ function getRaceInfo() {
         let raceDate = key[0].date.slice(0, 10);
         let status = value;
 
-        console.log(raceCountry);
-        console.log(raceCity);
-        console.log(raceName);
-        console.log(raceDate);
-        console.log(status);
-        console.log("end of loop");
         displayScheduleOverview(status, raceCountry, raceCity, raceName, raceDate);
     }
 }

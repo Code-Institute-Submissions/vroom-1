@@ -176,8 +176,3 @@ function createRoundWrappers() {
     // remove the superflous round
     scheduleContainer.removeChild(scheduleContainer.lastChild);
 }
-
-// console.logs: remove before submitting!
-//console.log(data);
-console.log(races);
-console.log(tracks);
