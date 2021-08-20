@@ -492,7 +492,7 @@ const mercedesTheme = () => {
         .css("color", "#C0C0C0")
         .css("background-color", "black")
         .css("border", "1px #00D2BE solid");
-    $("h1")
+    $("h2")
         .removeClass("rb-shadow")
         .removeClass("mcLaren-shadow")
         .addClass("mercedes-shadow");
@@ -505,7 +505,7 @@ $("#mercedes").on("click", function () {
 const redBullTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h1")
+    $("h2")
         .removeClass("mercedes-shadow")
         .removeClass("mcLaren-shadow")
         .addClass("rb-shadow");
@@ -522,7 +522,7 @@ $("#redBull").on("click", function () {
 const mcLarenTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h1")
+    $("h2")
         .removeClass("mercedes-shadow")
         .removeClass("rb-shadow")
         .addClass("mcLaren-shadow");
@@ -539,7 +539,7 @@ $("#mcLaren").on("click", function () {
 const defaultTheme = () => {
     $("#driverStandings").addClass("table-primary");
     $("#teamStandings").addClass("table-primary");
-    $("h1")
+    $("h2")
         .removeClass("mercedes-shadow")
         .removeClass("rb-shadow")
         .removeClass("mcLaren-shadow");
