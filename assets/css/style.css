@@ -134,14 +134,6 @@ caption,
     padding: 10px 20px;
 }
 
-.push-down100px {
-    margin-top: 100px;
-}
-
-.push-down10px {
-    margin-top: 10px;
-}
-
 #hideOnMobile {
     display: none;
 }
