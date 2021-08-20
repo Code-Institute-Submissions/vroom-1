@@ -59,6 +59,10 @@ h6 {
     color: #fcd800;
 }
 
+.redBull-btn:hover {
+    color: #fff3ad;
+}
+
 .mcLaren-shadow {
     color: #1e2d7a;
     text-shadow: 1px 0px 1px #ff8700, 0px 1px 1px #ffe2c2, 2px 1px 1px #ff8700, 1px 2px 1px #ffe2c2,
