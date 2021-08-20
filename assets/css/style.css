@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /*----- GOOGLE FONTS -----*/
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap");
 
@@ -28,10 +35,9 @@ h6 {
 .mercedes-shadow {
     color: #000;
     /*found at https://css-tricks.com/almanac/properties/t/text-shadow/ and adapted to my color schemes */
-    text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0,
-        1px 2px 1px #eee, 3px 2px 1px #c0c0c0, 2px 3px 1px #eee,
-        4px 3px 1px #c0c0c0, 3px 4px 1px #eee, 5px 4px 1px #c0c0c0,
-        4px 5px 1px #eee, 6px 5px 1px #c0c0c0, 5px 6px 1px #eee,
+    text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0, 1px 2px 1px #eee,
+        3px 2px 1px #c0c0c0, 2px 3px 1px #eee, 4px 3px 1px #c0c0c0, 3px 4px 1px #eee,
+        5px 4px 1px #c0c0c0, 4px 5px 1px #eee, 6px 5px 1px #c0c0c0, 5px 6px 1px #eee,
         7px 6px 1px #c0c0c0;
 }
 
@@ -42,10 +48,9 @@ h6 {
 
 .rb-shadow {
     color: #001e3c;
-    text-shadow: 1px 0px 1px #fcd800, 0px 1px 1px #fff3ad, 2px 1px 1px #fcd800,
-        1px 2px 1px #fff3ad, 3px 2px 1px #fcd800, 2px 3px 1px #fff3ad,
-        4px 3px 1px #fcd800, 3px 4px 1px #fff3ad, 5px 4px 1px #fcd800,
-        4px 5px 1px #fff3ad, 6px 5px 1px #fcd800, 5px 6px 1px #fff3ad,
+    text-shadow: 1px 0px 1px #fcd800, 0px 1px 1px #fff3ad, 2px 1px 1px #fcd800, 1px 2px 1px #fff3ad,
+        3px 2px 1px #fcd800, 2px 3px 1px #fff3ad, 4px 3px 1px #fcd800, 3px 4px 1px #fff3ad,
+        5px 4px 1px #fcd800, 4px 5px 1px #fff3ad, 6px 5px 1px #fcd800, 5px 6px 1px #fff3ad,
         7px 6px 1px #fcd800;
 }
 
@@ -56,10 +61,9 @@ h6 {
 
 .mcLaren-shadow {
     color: #1e2d7a;
-    text-shadow: 1px 0px 1px #ff8700, 0px 1px 1px #ffe2c2, 2px 1px 1px #ff8700,
-        1px 2px 1px #ffe2c2, 3px 2px 1px #ff8700, 2px 3px 1px #ffe2c2,
-        4px 3px 1px #ff8700, 3px 4px 1px #ffe2c2, 5px 4px 1px #ff8700,
-        4px 5px 1px #ffe2c2, 6px 5px 1px #ff8700, 5px 6px 1px #ffe2c2,
+    text-shadow: 1px 0px 1px #ff8700, 0px 1px 1px #ffe2c2, 2px 1px 1px #ff8700, 1px 2px 1px #ffe2c2,
+        3px 2px 1px #ff8700, 2px 3px 1px #ffe2c2, 4px 3px 1px #ff8700, 3px 4px 1px #ffe2c2,
+        5px 4px 1px #ff8700, 4px 5px 1px #ffe2c2, 6px 5px 1px #ff8700, 5px 6px 1px #ffe2c2,
         7px 6px 1px #ff8700;
 }
 
@@ -90,6 +94,7 @@ h6 {
 
 /* got the code snippet from @Amy_OShea_lead and adapted it slightly */
 .img-shadow {
+    -webkit-box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
     box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
 }
 
@@ -132,14 +137,14 @@ caption,
 /*----- CONTACT PAGE -----*/
 .contact-bg {
     min-height: 100vh;
-    background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50%
-        50%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50% 50%;
     background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
