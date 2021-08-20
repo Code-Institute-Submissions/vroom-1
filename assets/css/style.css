@@ -6,13 +6,19 @@
     --mcLaren-btn-color: #ff8700;
 }
 
-* {
-    font-family: "Ubuntu", sans-serif;
-}
-
 body {
     color: #141414;
     background-color: #96adc8;
+    font-family: "Fira Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Ubuntu", sans-serif;
 }
 
 .simple-shadow {
