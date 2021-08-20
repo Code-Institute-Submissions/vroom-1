@@ -155,12 +155,20 @@ caption,
     #nextCard {
         min-height: 150px;
     }
+    .schedule-card {
+        min-height: 408.97px;
+        min-width: 250px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
     #prevCard,
     #currentCard,
     #nextCard {
+        min-width: 270px;
+    }
+    .schedule-card {
+        min-height: 471.8px;
         min-width: 270px;
     }
 }
@@ -171,6 +179,10 @@ caption,
     #nextCard {
         min-width: 320px;
     }
+    .schedule-card {
+        min-height: 610.89px;
+        min-width: 300px;
+    }
 }
 
 @media screen and (min-width: 2560px) {
@@ -178,5 +190,12 @@ caption,
     #currentCard,
     #nextCard {
         min-width: 400px;
+    }
+    .schedule-card {
+        min-height: 620.27px;
+        min-width: 350px;
+    }
+    .placeholder-image {
+        max-height: 434px;
     }
 }
