@@ -1,25 +1,25 @@
 /* jshint esversion: 8 */
 // define endpoints for API call and add to Map
-const endpoints = new Map();
+const endPoints = new Map();
 const endPointDR = `rankings/drivers?season=2021`;
-endpoints.set("racerRankings", `${endPointDR}`);
+endPoints.set("racerRankings", `${endPointDR}`);
 const endPointTeams = `rankings/teams?season=2021`;
-endpoints.set("constructorRankings", `${endPointTeams}`);
+endPoints.set("constructorRankings", `${endPointTeams}`);
 const time = Date.now();
 const today = new Date(time);
 let dateForCall = today.toISOString().slice(0, 10);
 const endPointCurrRace = `races?season=2021&date=${dateForCall}`;
-endpoints.set("currentRace", `${endPointCurrRace}`);
+endPoints.set("currentRace", `${endPointCurrRace}`);
 const endPointPrevRace = `races?type=race&season=2021&last=1`;
-endpoints.set("prevRace", `${endPointPrevRace}`);
+endPoints.set("prevRace", `${endPointPrevRace}`);
 const endPointNextRace = `races?type=race&season=2021&next=1`;
-endpoints.set("nextRace", `${endPointNextRace}`);
+endPoints.set("nextRace", `${endPointNextRace}`);
 
 let dataFetched = localStorage.getItem("dataFetched") ? true : false;
 
 async function callAPI() {
     // iterate Map with for..of to get data from each endpoint
-    for (let [key, value] of endpoints) {
+    for (let [key, value] of endPoints) {
         fetch(`https://api-formula-1.p.rapidapi.com/${value}`, {
             method: "GET",
             headers: {
@@ -259,13 +259,13 @@ function searchDriver(name) {
             localStorage.setItem(`${name}`, JSON.stringify(details));
             let driverDetails = JSON.parse(localStorage.getItem(`${name}`));
             let imageURL = driverDetails[0].image;
-            let fullname = driverDetails[0].name;
+            let fullName = driverDetails[0].name;
             let driverNationality = driverDetails[0].nationality;
             let birthdate = driverDetails[0].birthdate;
-            let modalHeading = fullname;
-            let bDay = `Birthdate: ${birthdate}`;
-            let nat = `Nationality: ${driverNationality}`;
-            writeToModal(modalHeading, bDay, nat, imageURL);
+            let modalHeading = fullName;
+            let birthDay = `Birthdate: ${birthdate}`;
+            let nationality = `Nationality: ${driverNationality}`;
+            writeToModal(modalHeading, birthDay, nationality, imageURL);
         })
         .catch((err) => {
             console.error(err);

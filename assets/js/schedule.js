@@ -155,8 +155,10 @@ function getSessionDetails(sessionNumber) {
 
 function addSessionTimes(session, sessionNumber) {
     for (let i = 0; i < races.length; i++) {
-        let test = document.getElementsByClassName(`${session}`);
-        test[i].innerText = `${session[0].toUpperCase() + session.substr(1).slice(0, -4)} starts at
+        let sessionName = document.getElementsByClassName(`${session}`);
+        sessionName[i].innerText = `${
+            session[0].toUpperCase() + session.substr(1).slice(0, -4)
+        } starts at
     ${getSessionDetails(sessionNumber)[i]}`;
     }
 }
