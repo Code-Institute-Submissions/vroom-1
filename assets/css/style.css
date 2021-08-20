@@ -46,6 +46,11 @@ h6 {
     color: #000;
 }
 
+.mercedes-btn:hover {
+    color: #333333;
+    border: 3px #c0c0c0 solid;
+}
+
 .rb-shadow {
     color: #001e3c;
     text-shadow: 1px 0px 1px #fcd800, 0px 1px 1px #fff3ad, 2px 1px 1px #fcd800, 1px 2px 1px #fff3ad,
@@ -61,6 +66,7 @@ h6 {
 
 .redBull-btn:hover {
     color: #fff3ad;
+    border: 3px #d7061e solid;
 }
 
 .mcLaren-shadow {
@@ -76,8 +82,18 @@ h6 {
     color: #1e2d7a;
 }
 
+.mcLaren-btn:hover {
+    color: #0c1231;
+    border: 3px #443e47 solid;
+}
+
 .default-btn {
     color: #cfe2ff;
+}
+
+.default-btn:hover {
+    color: #fafafa;
+    border: 3px #fff solid;
 }
 
 .mercedes-btn,
