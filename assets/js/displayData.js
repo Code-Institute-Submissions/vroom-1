@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 // define endpoints for API call and add to Map
 const endpoints = new Map();
 const endPointDR = `rankings/drivers?season=2021`;
@@ -22,8 +23,7 @@ async function callAPI() {
         fetch(`https://api-formula-1.p.rapidapi.com/${value}`, {
             method: "GET",
             headers: {
-                "x-rapidapi-key":
-                    "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+                "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
                 "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
             },
         })
@@ -50,15 +50,9 @@ function checkAllDataReceived() {
     let nextRaceFetched = localStorage.getItem("nextRace") ? true : false;
     let prevRaceFetched = localStorage.getItem("prevRace") ? true : false;
     let driversFetched = localStorage.getItem("racerRankings") ? true : false;
-    let teamsFetched = localStorage.getItem("constructorRankings")
-        ? true
-        : false;
+    let teamsFetched = localStorage.getItem("constructorRankings") ? true : false;
     let allDataFetched =
-        currentRaceFetched &&
-        prevRaceFetched &&
-        nextRaceFetched &&
-        driversFetched &&
-        teamsFetched;
+        currentRaceFetched && prevRaceFetched && nextRaceFetched && driversFetched && teamsFetched;
     if (!allDataFetched) {
         callAPI();
     } else {
@@ -70,23 +64,13 @@ function checkAllDataReceived() {
         // calculate the difference in days between today and the last day the data were fetched
         const diffFetchDateToToday = dayjs(today).diff(dayjs(fetchDate), "day");
         // calculate the difference in days between today and the date of the next race
-        const diffNextRaceToToday = dayjs(nextRaceDate).diff(
-            dayjs(today),
-            "day"
-        );
-        const diffPrevRaceToToday = dayjs(today).diff(
-            dayjs(prevRaceDate),
-            "day"
-        );
+        const diffNextRaceToToday = dayjs(nextRaceDate).diff(dayjs(today), "day");
+        const diffPrevRaceToToday = dayjs(today).diff(dayjs(prevRaceDate), "day");
         // call the API again if:
         // the date is older than 6 days or if
         // there is a race today or if
         // there has been a race on the previous day
-        if (
-            diffFetchDateToToday >= 6 ||
-            diffNextRaceToToday === 0 ||
-            diffPrevRaceToToday === 1
-        ) {
+        if (diffFetchDateToToday >= 6 || diffNextRaceToToday === 0 || diffPrevRaceToToday === 1) {
             callAPI();
             console.log("refreshed API data");
         } else {
@@ -254,14 +238,11 @@ function moreInfo() {
 
 // show modal with details for selected team
 function moreTeamInfo() {
-    var teamInfoModal = new bootstrap.Modal(
-        document.getElementById("moreTeamInfo"),
-        {
-            keyboard: true,
-            focus: true,
-            backdrop: true,
-        }
-    );
+    var teamInfoModal = new bootstrap.Modal(document.getElementById("moreTeamInfo"), {
+        keyboard: true,
+        focus: true,
+        backdrop: true,
+    });
     // use id to prevent null-return for Mercedes-AMG Petronas
     let id = this.id;
     searchConstructor(id);
@@ -275,8 +256,7 @@ function searchDriver(name) {
     fetch(`https://api-formula-1.p.rapidapi.com/drivers?search=${name}`, {
         method: "GET",
         headers: {
-            "x-rapidapi-key":
-                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
             "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
         },
     })
@@ -306,8 +286,7 @@ function searchConstructor(id) {
     fetch(`https://api-formula-1.p.rapidapi.com/teams?search=${id}`, {
         method: "GET",
         headers: {
-            "x-rapidapi-key":
-                "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
+            "x-rapidapi-key": "0976a2e9aemsh7e7a4e1e87da560p10b7a1jsnf97cc271f7ab",
             "x-rapidapi-host": "api-formula-1.p.rapidapi.com",
         },
     })
@@ -326,13 +305,7 @@ function searchConstructor(id) {
             let teamDirector = `Director: ${director}`;
             let teamManager = `Technical manager: ${technicalManager}`;
             let teamEngine = `Engine: ${engine}`;
-            writeToTeamModal(
-                modalHeading,
-                teamDirector,
-                teamManager,
-                teamEngine,
-                imageURL
-            );
+            writeToTeamModal(modalHeading, teamDirector, teamManager, teamEngine, imageURL);
         })
         .catch((err) => {
             console.error(err);
@@ -385,9 +358,7 @@ function writeToTeamModal(name, director, manager, engine, logo) {
 // retrieve team positions from localStorage and store in array
 function getTeamPosition() {
     let teamPosition = [];
-    let constructorRankings = JSON.parse(
-        localStorage.getItem("constructorRankings")
-    );
+    let constructorRankings = JSON.parse(localStorage.getItem("constructorRankings"));
     constructorRankings.forEach(function (element) {
         let pos = element.position;
         teamPosition.push(pos);
@@ -398,9 +369,7 @@ function getTeamPosition() {
 // retrieve teams from localStorage and store in array
 function getConstructor() {
     let constructors = [];
-    let constructorRankings = JSON.parse(
-        localStorage.getItem("constructorRankings")
-    );
+    let constructorRankings = JSON.parse(localStorage.getItem("constructorRankings"));
     constructorRankings.forEach(function (element) {
         let team = element.team.name;
         constructors.push(team);
@@ -411,9 +380,7 @@ function getConstructor() {
 // retrieve points from localStorage and store in array
 function getTeamPoints() {
     let teamPoints = [];
-    let constructorRankings = JSON.parse(
-        localStorage.getItem("constructorRankings")
-    );
+    let constructorRankings = JSON.parse(localStorage.getItem("constructorRankings"));
     constructorRankings.forEach(function (element) {
         let teamPoint = element.points;
         teamPoints.push(teamPoint);
@@ -492,10 +459,7 @@ const mercedesTheme = () => {
         .css("color", "#C0C0C0")
         .css("background-color", "black")
         .css("border", "1px #00D2BE solid");
-    $("h2")
-        .removeClass("rb-shadow")
-        .removeClass("mcLaren-shadow")
-        .addClass("mercedes-shadow");
+    $("h2").removeClass("rb-shadow").removeClass("mcLaren-shadow").addClass("mercedes-shadow");
     localStorage.setItem("theme", "mercedes");
 };
 $("#mercedes").on("click", function () {
@@ -505,10 +469,7 @@ $("#mercedes").on("click", function () {
 const redBullTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h2")
-        .removeClass("mercedes-shadow")
-        .removeClass("mcLaren-shadow")
-        .addClass("rb-shadow");
+    $("h2").removeClass("mercedes-shadow").removeClass("mcLaren-shadow").addClass("rb-shadow");
     $("td, th")
         .css("color", "#FCD800")
         .css("background-color", "#001E3C")
@@ -522,10 +483,7 @@ $("#redBull").on("click", function () {
 const mcLarenTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h2")
-        .removeClass("mercedes-shadow")
-        .removeClass("rb-shadow")
-        .addClass("mcLaren-shadow");
+    $("h2").removeClass("mercedes-shadow").removeClass("rb-shadow").addClass("mcLaren-shadow");
     $("td, th")
         .css("color", "#FF8700")
         .css("background-color", "#1E2D7A")
@@ -539,14 +497,8 @@ $("#mcLaren").on("click", function () {
 const defaultTheme = () => {
     $("#driverStandings").addClass("table-primary");
     $("#teamStandings").addClass("table-primary");
-    $("h2")
-        .removeClass("mercedes-shadow")
-        .removeClass("rb-shadow")
-        .removeClass("mcLaren-shadow");
-    $("td, th")
-        .css("background-color", "#CFE2FF")
-        .css("color", "#000")
-        .css("border", "none");
+    $("h2").removeClass("mercedes-shadow").removeClass("rb-shadow").removeClass("mcLaren-shadow");
+    $("td, th").css("background-color", "#CFE2FF").css("color", "#000").css("border", "none");
     localStorage.setItem("theme", "default");
 };
 $("#default").on("click", function () {
@@ -606,13 +558,7 @@ function getRaceInfo() {
         console.log(raceDate);
         console.log(status);
         console.log("end of loop");
-        displayScheduleOverview(
-            status,
-            raceCountry,
-            raceCity,
-            raceName,
-            raceDate
-        );
+        displayScheduleOverview(status, raceCountry, raceCity, raceName, raceDate);
     }
 }
 
@@ -641,10 +587,7 @@ function shiftLeft() {
     if ($(window).width() > 768) {
         return;
     }
-    if (
-        $("#prevCard").hasClass("d-none") &&
-        $("#nextCard").hasClass("d-none")
-    ) {
+    if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
         $("#currentCard").hide();
         $("#prevCard").removeClass("d-none").show();
         switch ($(window).width()) {
@@ -674,10 +617,7 @@ function shiftRight() {
     if ($(window).width() > 768) {
         return;
     }
-    if (
-        $("#prevCard").hasClass("d-none") &&
-        $("#nextCard").hasClass("d-none")
-    ) {
+    if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
         $("#currentCard").hide();
         $("#nextCard").removeClass("d-none").show();
         switch ($(window).width()) {

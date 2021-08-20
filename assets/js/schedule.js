@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 // create variable to check whether data from two different APIs has been stored to local storage
 let racesFetched = localStorage.getItem("racesFetched") ? true : false;
 let tracksFetched = localStorage.getItem("tracksFetched") ? true : false;
@@ -49,7 +50,10 @@ function getRaceTrack() {
 }
 
 // prevent unecessary API calls
-if (!localStorage.getItem("racesFetched")) {
+if (
+    !localStorage.getItem("racesFetched") ||
+    !localStorage.getItem("tracksFetched")
+) {
     getFullSchedule();
 } else {
     // only call these functions after data has been fetched
