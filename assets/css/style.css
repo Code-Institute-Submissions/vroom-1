@@ -1,11 +1,14 @@
+/*----- GOOGLE FONTS -----*/
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap");
 
+/*----- ROOT VARIABLES -----*/
 :root {
     --merceds-btn-color: #00d2be;
     --redBull-btn-color: #001e3c;
     --mcLaren-btn-color: #ff8700;
 }
 
+/*----- GENERAL STYLES -----*/
 body {
     color: #141414;
     background-color: #96adc8;
@@ -21,16 +24,10 @@ h6 {
     font-family: "Ubuntu", sans-serif;
 }
 
-.simple-shadow {
-    text-shadow: 1px 1px 2px #c0c0c0;
-}
-
-.simple-shadow-dark {
-    text-shadow: 1px 1px 2px #5c5c5c;
-}
-
+/*----- THEMES -----*/
 .mercedes-shadow {
     color: #000;
+    /*found at https://css-tricks.com/almanac/properties/t/text-shadow/ and adapted to my color schemes */
     text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0,
         1px 2px 1px #eee, 3px 2px 1px #c0c0c0, 2px 3px 1px #eee,
         4px 3px 1px #c0c0c0, 3px 4px 1px #eee, 5px 4px 1px #c0c0c0,
@@ -82,8 +79,29 @@ h6 {
     font-size: 18px;
 }
 
+/*----- TEXT AND IMAGE EFFECTS -----*/
+.simple-shadow {
+    text-shadow: 1px 1px 2px #c0c0c0;
+}
+
+.simple-shadow-dark {
+    text-shadow: 1px 1px 2px #5c5c5c;
+}
+
+/* got the code snippet from @Amy_OShea_lead and adapted it slightly */
 .img-shadow {
     box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
+}
+
+.portrait-border {
+    border: 3px #4e657e ridge;
+}
+
+/*----- CARDS -----*/
+.card-body {
+    min-width: 210px;
+    min-height: 136px;
+    background-color: #e6f4f1;
 }
 
 .location,
@@ -91,12 +109,9 @@ h6 {
     border: 10px #4e657e ridge;
 }
 
-.portrait-border {
-    border: 3px #4e657e ridge;
-}
-
-.bigger-font {
-    font-size: 1.5em;
+/*----- TABLES -----*/
+#hideOnMobile {
+    display: none;
 }
 
 caption,
@@ -104,6 +119,7 @@ caption,
     color: #303030;
 }
 
+/*----- SOCIAL MEDIA ICONS -----*/
 .social-link {
     color: #fff;
 }
@@ -113,6 +129,7 @@ caption,
     margin-top: 10px;
 }
 
+/*----- CONTACT PAGE -----*/
 .contact-bg {
     min-height: 100vh;
     background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50%
@@ -130,21 +147,11 @@ caption,
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.add-padding {
-    padding: 10px 20px;
+.bigger-font {
+    font-size: 1.5em;
 }
 
-#hideOnMobile {
-    display: none;
-}
-
-.card-body {
-    min-width: 210px;
-    min-height: 136px;
-    background-color: #e6f4f1;
-}
-
-/* ---------- Media Queries ---------- */
+/* ---------- MEDIA QUERIES ---------- */
 @media screen and (min-width: 768px) {
     #hideOnMobile {
         display: table-cell;
