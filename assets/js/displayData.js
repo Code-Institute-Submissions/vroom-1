@@ -592,16 +592,16 @@ function shiftLeft() {
         $("#prevCard").removeClass("d-none").show();
         switch ($(window).width()) {
             case 320:
-                $("#prevCard").css("transform", "translateX(20%");
+                $("#prevCard").css("transform", "translateX(20%)");
                 break;
             case 375:
-                $("#prevCard").css("transform", "translateX(30%");
+                $("#prevCard").css("transform", "translateX(30%)");
                 break;
             case 412:
-                $("#prevCard").css("transform", "translateX(45%");
+                $("#prevCard").css("transform", "translateX(45%)");
                 break;
             case 425:
-                $("#prevCard").css("transform", "translateX(40%");
+                $("#prevCard").css("transform", "translateX(40%)");
                 break;
         }
         $("#left").addClass("d-none");
@@ -616,22 +616,21 @@ function shiftLeft() {
 function shiftRight() {
     if ($(window).width() > 768) {
         return;
-    }
-    if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
+    } else if ($("#prevCard").hasClass("d-none") && $("#nextCard").hasClass("d-none")) {
         $("#currentCard").hide();
         $("#nextCard").removeClass("d-none").show();
         switch ($(window).width()) {
             case 320:
-                $("#nextCard").css("transform", "translateX(-20%");
+                $("#nextCard").css("transform", "translateX(-20%)");
                 break;
             case 375:
-                $("#nextCard").css("transform", "translateX(-30%");
+                $("#nextCard").css("transform", "translateX(-30%)");
                 break;
             case 412:
-                $("#nextCard").css("transform", "translateX(-45%");
+                $("#nextCard").css("transform", "translateX(-45%)");
                 break;
             case 425:
-                $("#nextCard").css("transform", "translateX(-40%");
+                $("#nextCard").css("transform", "translateX(-40%)");
                 break;
         }
         $("#right").addClass("d-none");
