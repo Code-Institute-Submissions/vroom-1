@@ -23,10 +23,15 @@ Due to most of the data on the site being dependent on API calls I couldn't use 
 -   As a user, I want to see the whole race calendar with track details so that I can decide if I want to buy tickets for the race.
 -   As a user, I want to be able to change the website’s theme so that I can adjust it to my liking.
 
+** Returning user:**
+
+-   As a returning user, I want the website to remember my choice for the website's theme.
+
 **Website owner:**
 
 -   As the website owner, I want the site to be responsive, so that users can enjoy it on all devices from mobile phones to desktops.
 -   As the website owner, I want the site to be as informative as possible without being cluttered, so that users can find the information they’re looking for quickly.
+-   As the website owner, I want the site to make API calls when necessary and not on every page reload.
 
 ## **Design**
 
@@ -129,7 +134,53 @@ Differences in the deployed version:
 
 ## **Testing User Stories**
 
-**to be added**
+### **User Requirements and Expectations**
+
+The following user requirements and expectations were developed based on the user stories.
+
+#### Expectation: being able to quickly see the date and time of the current and next race
+
+-   Requirement: on the homepage this should be among the first data the users sees.
+-   Implementation: the schedule overview has been placed directly beneath the welcome message. From the Full Schedule and Contact page the user can reach the schedule overview via the navbar and from the 404 page the user can use provided link back to the homepage. See the screenshots [here](assets/images/usertests/user-expectation-1.png) and [here](assets/images/usertests/user-expectation-1-example-2.png).
+
+#### Expectation: being able to see the driver's and team's standings
+
+-   Requirement: the user should intuitively find the desired information.
+-   Implementation: the tables containing the driver and team standings have been placed on the homepage. Furthermore, the navbar allows quick navigation to each of the tables. See the screenshots [here](assets/images/usertests/user-expectation-2.png), [here](assets/images/usertests/user-expectation-2-example-2.png) and [here](assets/images/usertests/user-expectation-2-example-3.png).
+
+#### Expectation: being able to see the latest results of drivers and teams to be able to gauge their form
+
+Unfortunately, this feature could not be implemented. Neither of the used APIs offers a suitable endpoint to obtain the required data and it was outside the scope of this project to find and implement a custom-made solution.
+
+#### Expectation: being able to see the whole race calendar with track details
+
+-   Requirement: in addition to the schedule overview on the homepage, the user should be able to see the race calendar for the full season with additional information.
+-   Implementation: the full schedule page provides the following data for all confirmed races of the 2021 season: the number of the round, the date, country + name of the race, the name of the track and the starting times for the individual race sessions. See the screenshot [here](assets/images/usertests/user-expectation-4.png). Due to the already high number of API calls being made, it was again outside the scope of this project to add another API, e.g. Google Maps, to provide the user with even more data.
+
+#### Expectation: being able to change the website's theme
+
+-   Requirement: the user should be able to intuitively change the website's theme
+-   Implementation: on the homepage 4 buttons have been placed that allow the user to select a theme that uses the team colors from Mercedes, Red Bull or McLaren. The button's background and text colors imitate the changes applied by the themes. The fourth button allows the user to revert back to the default theme. The themes change the background and text color of the two tables and add shadow-effects to the table headings. See screenshot (exemplary for one of the themes) [here](assets/images/usertests/user-expectation-5.png). No other elements on the homepage or the other pages are affected on purpose because these elements bear no relation to either drivers or teams.
+
+#### Expectation: the website 'remembers' the user's choice for a theme
+
+-   Requirement: the website applies a previously selected theme after a page reload
+-   Implementation: For first time visitors, the theme is set to default. On theme selection, the chosen theme is saved to local storage. On page load a check for a set theme runs and applies the according theme. See code screenshot [here](assets/images/usertests/user-expectation-6.png).
+
+#### Expectation: the website is responsive
+
+-   Requirement: the website can be easily viewed and navigated on different viewports without the content being unreadable or the user having to unnecessarily scroll to see content
+-   Implementation: both Bootstrap and a mobile-first approach were used to make the site responsive. Additionally, some content is not displayed on smaller viewports. For reference, please see the mockup and the wireframes.
+
+#### Expectation: the website is informant without being cluttered
+
+-   Requirement: the website offers the most important information about the current F1 season without being cluttered and without feature creep.
+-   Implementation: all pages feature a minimalistic design. Text content is kept at the minimum needed to convey the information. Additional information about drivers and teams can be viewed via modals and the user is informed about this in a short text above the corresponding table. See screenshots [here](assets/images/usertests/owner-expectation-2.png) and [here](assets/images/usertests/owner-expectation-2-example-2.png).
+
+#### Expectation: API calls are made when necessary and not on every page reload
+
+-   Requirement: checks should be put into place to ensure that API calls are only being made when necessary
+-   Implementation: on first load all API endpoints are called, the data saved to local storage and Boolean variables for each set of data set to true. For later page loads, for each data set a check is run whether the data is in local storage. API calls are only made for missing data. For data that changes regularly (the standings and the schedule overview) additional checks are run to ensure that the data is kept up to date. See code screenshots [here](assets/images/usertests/owner-expectation-3.png) and [here](assets/images/usertests/owner-expectation-3-example-2.png).
 
 ## **Bugs**
 
