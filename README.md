@@ -47,7 +47,10 @@ For the themes I used the team colours from Red Bull Racing, Mercedes-AMG Petron
 
 ### **Typography**
 
-For fonts, I used Ubuntu as primary font. Especially the letters f, t and n transport a sense of speed. As secondary font, I chose Fira Sans.
+For fonts, I used Ubuntu for headings. Especially the letters f, t and n transport a sense of speed. For all other text, I chose Fira Sans.
+
+![Ubuntu](assets/images/readme/ubuntu-400-20px.png)
+![Fira Sans](assets/images/readme/fira-sans-400-20px.png)
 
 ### **Icons**
 
