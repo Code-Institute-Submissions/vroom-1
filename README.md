@@ -41,9 +41,9 @@ The project uses the Bootstrap framework to ensure a responsive design. Where po
 
 ### **Colour Scheme**
 
-For the themes I used the team colours from Red Bull Racing, Mercedes and McLaren Mercedes. For the default theme I chose colours with a high contrast to ensure readability and accessibility. I used [Coolors](https://coolors.co) to generate my colour palette.
+For the themes I used the team colours from Red Bull Racing, Mercedes-AMG Petronas and McLaren Racing. For the default theme I chose colours with a high contrast to ensure readability and accessibility. I used [Coolors](https://coolors.co) to generate my colour palette. Note: due to limitations regarding the number of colors, black as well as the lighter variants of silver, yellow and orange for the text-shadows are not included.
 
-**ADD COLOUR PALETTE**
+![Color palette](assets/images/readme/vroom-color-palette.jpg)
 
 ### **Typography**
 
@@ -110,7 +110,6 @@ Differences in the deployed version:
 -   [Sizzy](https://sizzy.co/)
 -   [Balsamiq](https://balsamiq.com/)
 -   [Coolors colour palette generator](https://coolors.co/)
--   [mycolor.space](https://mycolor.space/)
 -   [Google Cloud Platform](https://cloud.google.com/)
 -   [W3C HTML Validation Service](https://validator.w3.org/)
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
