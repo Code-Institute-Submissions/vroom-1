@@ -204,3 +204,18 @@ Overall, these results are quite satisfactory. The bad performances on mobile de
 # **Usability Testing**
 
 Family, friends and colleagues were asked to test the site on their computers and/or mobile devices and their preferred browsers. No issues regarding the navigation of the site were reported. When using Firefox, for the homepage the site takes way too long to load and seems to constantly reload before finally displaying the page content. 'TypeError: Network error when attempting to fetch resource' is repeatedly being displayed in the console. The others pages are being loaded and displayed normally. No problems could be noticed or have been reported when using Chrome, Edge or Opera. No issues regarding the buttons, modals or contact form were reported.
+
+# **Compatibility Testing**
+
+Both [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Sizzy](https://sizzy.co/) were used throughout the development process to test responsiveness. Especially Sizzy allowed me to view different viewport sizes simultaneously to spot unwanted visuals at a glance. The following devices and viewports were tested:
+
+-   iPhone 5 (320 x 568px)
+-   iPhone 8 (375 x 667px)
+-   Galaxy Note 10 (412 x 869px)
+-   iPad Pro 11 (834 x 1194px)
+-   Laptop S (1280 x 800)
+-   MacBook Air (1440 x 900px)
+-   Desktop (1920 x 1080px)
+-   iMac Retina 27 (2560 x 1440px)
+
+No issues regarding the responsiveness have been noticed. Feedback regarding the size of the image on the 404 page and the need for users to scroll down on some devices to see the link to the homepage has been noticed and the image size has been decreased.
