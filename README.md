@@ -54,11 +54,12 @@ For fonts, I used Ubuntu for headings. Especially the letters f, t and n transpo
 
 ### **Icons**
 
-All implemented icons are from [Font Awesome](https://fontawesome.com).
+There are no icons used on the site itself. The favicon was generated from an
+[Font Awesome](https://fontawesome.com) icon.
 
 ### **Imagery**
 
-**Placeholder**
+The driver, team logo and racetrack images are being provided by the API. Credit for the images used on the contact and 404 pages as well as for placeholder images is given below in the media section.
 
 ### **Wireframes**
 
