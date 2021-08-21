@@ -213,7 +213,7 @@ caption,
     }
 }
 
-@media screen and (min-width: 2560px) {
+@media screen and (min-width: 2400px) {
     #prevCard,
     #currentCard,
     #nextCard {
