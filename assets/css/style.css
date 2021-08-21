@@ -42,12 +42,12 @@ h6 {
 }
 
 .theme__btn--mercedes {
-    background-color: var(--merceds-btn-color);
-    color: #000;
+    background-color: #000;
+    color: #c0c0c0;
 }
 
 .theme__btn--mercedes:hover {
-    color: #333333;
+    color: #e5e7e6;
     border: 3px #c0c0c0 solid;
 }
 
@@ -60,7 +60,7 @@ h6 {
 }
 
 .theme__btn--redbull {
-    background-color: var(--redBull-btn-color);
+    background-color: #001e3c;
     color: #fcd800;
 }
 
@@ -78,21 +78,23 @@ h6 {
 }
 
 .theme__btn--mclaren {
-    background-color: var(--mcLaren-btn-color);
+    background-color: #ff8700;
     color: #1e2d7a;
 }
 
 .theme__btn--mclaren:hover {
-    color: #0c1231;
+    color: #101842;
     border: 3px #443e47 solid;
 }
 
 .theme__btn--default {
-    color: #cfe2ff;
+    background-color: #cfe2ff;
+    color: #000;
 }
 
 .theme__btn--default:hover {
-    color: #fafafa;
+    background-color: #cfe2ff;
+    color: #3d3d3d;
     border: 3px #fff solid;
 }
 
