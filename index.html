@@ -87,18 +87,18 @@
                     class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 start-0 translate-middle-y ms-2">
                     <span><i class="fas fa-caret-left"></i></span>
                 </button>
-                <div id="prevCard" class="card img-shadow d-none d-md-inline-flex">
+                <div id="prevCard" class="card img__shadow d-none d-md-inline-flex">
                     <div class="card-body">
-                        <h5 id="prevCountry" class="card-title simple-shadow">prevCountry</h5>
-                        <p id="prevName" class="card-text simple-shadow"></p>
+                        <h5 id="prevCountry" class="card-title text__shadow--light">prevCountry</h5>
+                        <p id="prevName" class="card-text text__shadow--light"></p>
                     </div>
                 </div>
             </div>
             <div id="current" class="col col-md-4 text-center">
-                <div id="currentCard" class="card img-shadow">
+                <div id="currentCard" class="card img__shadow">
                     <div class="card-body">
-                        <h5 id="currentCountry" class="card-title simple-shadow">currentCountry</h5>
-                        <p id="currentName" class="card-text simple-shadow"></p>
+                        <h5 id="currentCountry" class="card-title text__shadow--light">currentCountry</h5>
+                        <p id="currentName" class="card-text text__shadow--light"></p>
                     </div>
                 </div>
             </div>
@@ -107,10 +107,10 @@
                     class="btn btn-primary d-inline-flex d-md-none position-absolute top-50 end-0 translate-middle-y me-2">
                     <span><i class="fas fa-caret-right"></i></span>
                 </button>
-                <div id="nextCard" class="card img-shadow d-none d-md-inline-flex">
+                <div id="nextCard" class="card img__shadow d-none d-md-inline-flex">
                     <div class="card-body">
-                        <h5 id="nextCountry" class="card-title simple-shadow">nextCountry</h5>
-                        <p id="nextName" class="card-text simple-shadow"></p>
+                        <h5 id="nextCountry" class="card-title text__shadow--light">nextCountry</h5>
+                        <p id="nextName" class="card-text text__shadow--light"></p>
                     </div>
                 </div>
             </div>
@@ -120,15 +120,16 @@
     <div id="themeSelectors" class="row text-center my-4">
         <div class="col-12 fs-3">Choose your favourite team or revert to default theme:</div>
         <div class="col-12 col-md-3"><button type="button" id="mercedes"
-                class="btn col-8 simple-shadow-dark mercedes-btn">Mercedes</button>
+                class="btn col-8 text__shadow--dark theme__btn--mercedes">Mercedes</button>
         </div>
-        <div class="col-12 col-md-3"><button type="button" id="redBull" class="btn col-8 simple-shadow redBull-btn">Red
+        <div class="col-12 col-md-3"><button type="button" id="redBull"
+                class="btn col-8 text__shadow--light theme__btn--redbull">Red
                 Bull</button></div>
         <div class="col-12 col-md-3"><button type="button" id="mcLaren"
-                class="btn col-8 simple-shadow-dark mcLaren-btn">McLaren
+                class="btn col-8 text__shadow--dark theme__btn--mclaren">McLaren
             </button></div>
         <div class="col-12 col-md-3"><button type="button" id="default"
-                class="btn btn-dark col-8 simple-shadow-dark default-btn">Default
+                class="btn btn-dark col-8 text__shadow--dark theme__btn--default">Default
             </button>
         </div>
     </div>
@@ -181,16 +182,16 @@
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                         <div class="modal-content text-center">
-                            <div id=fullName class="modal-header simple-shadow">
+                            <div id=fullName class="modal-header text__shadow--light">
                                 <h3 class="modal-title text-center" id="moreInfoLabel">Name
                                 </h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div id="driverDetails" class="modal-body simple-shadow fs-5">
+                            <div id="driverDetails" class="modal-body text__shadow--light fs-5">
                                 <p id="dateOfBirth"></p>
                                 <p id="driverNationality"></p>
-                                <img id="pic" class="portrait-border" src="./assets/images/generic-person.png"
+                                <img id="pic" class="portrait__border" src="./assets/images/generic-person.png"
                                     alt="Picture of driver">
                             </div>
                             <div class="modal-footer">
@@ -207,13 +208,13 @@
                     aria-labelledby="moreTeamInfoLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                         <div class="modal-content text-center">
-                            <div id=teamFullName class="modal-header simple-shadow">
+                            <div id=teamFullName class="modal-header text__shadow--light">
                                 <h3 class="modal-title" id="moreTeamInfoLabel">Name
                                 </h3>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div id="teamDetails" class="modal-body simple-shadow fs-5">
+                            <div id="teamDetails" class="modal-body text__shadow--light fs-5">
                                 <p id="director"></p>
                                 <p id="technicalManager"></p>
                                 <p id="engine"></p>
@@ -238,19 +239,22 @@
                 <h3 class="text-center">Find us on:</h3>
                 <ul class="list-inline">
                     <li class="list-inline-item mx-2 mx-sm-4">
-                        <a class="social-link" href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a class="footer__socialmedia" href="http://www.facebook.com" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-facebook" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Facebook</span>
                         </a>
                     </li>
                     <li class="list-inline-item me-2 me-sm-4">
-                        <a class="social-link" href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                        <a class="footer__socialmedia" href="http://www.twitter.com" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-twitter-square" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Twitter</span>
                         </a>
                     </li>
                     <li class="list-inline-item me-2 me-sm-4">
-                        <a class="social-link" href="http://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                        <a class="footer__socialmedia" href="http://www.youtube.com" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                             <span class="sr-only sr-only-focusable">Youtube</span>
                         </a>

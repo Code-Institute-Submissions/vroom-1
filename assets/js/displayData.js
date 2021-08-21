@@ -449,7 +449,10 @@ const mercedesTheme = () => {
         .css("color", "#C0C0C0")
         .css("background-color", "black")
         .css("border", "1px #00D2BE solid");
-    $("h2").removeClass("rb-shadow").removeClass("mcLaren-shadow").addClass("mercedes-shadow");
+    $("h2")
+        .removeClass("theme__shadow--redbull")
+        .removeClass("theme__shadow--mclaren")
+        .addClass("theme__shadow--mercedes");
     localStorage.setItem("theme", "mercedes");
 };
 $("#mercedes").on("click", function () {
@@ -459,7 +462,10 @@ $("#mercedes").on("click", function () {
 const redBullTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h2").removeClass("mercedes-shadow").removeClass("mcLaren-shadow").addClass("rb-shadow");
+    $("h2")
+        .removeClass("theme__shadow--mercedes")
+        .removeClass("theme__shadow--mclaren")
+        .addClass("theme__shadow--redbull");
     $("td, th")
         .css("color", "#FCD800")
         .css("background-color", "#001E3C")
@@ -473,7 +479,10 @@ $("#redBull").on("click", function () {
 const mcLarenTheme = () => {
     $("#driverStandings").removeClass("table-primary");
     $("#teamStandings").removeClass("table-primary");
-    $("h2").removeClass("mercedes-shadow").removeClass("rb-shadow").addClass("mcLaren-shadow");
+    $("h2")
+        .removeClass("theme__shadow--mercedes")
+        .removeClass("theme__shadow--redbull")
+        .addClass("theme__shadow--mclaren");
     $("td, th")
         .css("color", "#FF8700")
         .css("background-color", "#1E2D7A")
@@ -487,7 +496,10 @@ $("#mcLaren").on("click", function () {
 const defaultTheme = () => {
     $("#driverStandings").addClass("table-primary");
     $("#teamStandings").addClass("table-primary");
-    $("h2").removeClass("mercedes-shadow").removeClass("rb-shadow").removeClass("mcLaren-shadow");
+    $("h2")
+        .removeClass("theme__shadow--mercedes")
+        .removeClass("theme__shadow--redbull")
+        .removeClass("theme__shadow--mclaren");
     $("td, th").css("background-color", "#CFE2FF").css("color", "#000").css("border", "none");
     localStorage.setItem("theme", "default");
 };

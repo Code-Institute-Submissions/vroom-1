@@ -32,7 +32,7 @@ h6 {
 }
 
 /*----- THEMES -----*/
-.mercedes-shadow {
+.theme__shadow--mercedes {
     color: #000;
     /*found at https://css-tricks.com/almanac/properties/t/text-shadow/ and adapted to my color schemes */
     text-shadow: 1px 0px 1px #c0c0c0, 0px 1px 1px #eee, 2px 1px 1px #c0c0c0, 1px 2px 1px #eee,
@@ -41,17 +41,17 @@ h6 {
         7px 6px 1px #c0c0c0;
 }
 
-.mercedes-btn {
+.theme__btn--mercedes {
     background-color: var(--merceds-btn-color);
     color: #000;
 }
 
-.mercedes-btn:hover {
+.theme__btn--mercedes:hover {
     color: #333333;
     border: 3px #c0c0c0 solid;
 }
 
-.rb-shadow {
+.theme__shadow--redbull {
     color: #001e3c;
     text-shadow: 1px 0px 1px #fcd800, 0px 1px 1px #fff3ad, 2px 1px 1px #fcd800, 1px 2px 1px #fff3ad,
         3px 2px 1px #fcd800, 2px 3px 1px #fff3ad, 4px 3px 1px #fcd800, 3px 4px 1px #fff3ad,
@@ -59,17 +59,17 @@ h6 {
         7px 6px 1px #fcd800;
 }
 
-.redBull-btn {
+.theme__btn--redbull {
     background-color: var(--redBull-btn-color);
     color: #fcd800;
 }
 
-.redBull-btn:hover {
+.theme__btn--redbull:hover {
     color: #fff3ad;
     border: 3px #d7061e solid;
 }
 
-.mcLaren-shadow {
+.theme__shadow--mclaren {
     color: #1e2d7a;
     text-shadow: 1px 0px 1px #ff8700, 0px 1px 1px #ffe2c2, 2px 1px 1px #ff8700, 1px 2px 1px #ffe2c2,
         3px 2px 1px #ff8700, 2px 3px 1px #ffe2c2, 4px 3px 1px #ff8700, 3px 4px 1px #ffe2c2,
@@ -77,60 +77,61 @@ h6 {
         7px 6px 1px #ff8700;
 }
 
-.mcLaren-btn {
+.theme__btn--mclaren {
     background-color: var(--mcLaren-btn-color);
     color: #1e2d7a;
 }
 
-.mcLaren-btn:hover {
+.theme__btn--mclaren:hover {
     color: #0c1231;
     border: 3px #443e47 solid;
 }
 
-.default-btn {
+.theme__btn--default {
     color: #cfe2ff;
 }
 
-.default-btn:hover {
+.theme__btn--default:hover {
     color: #fafafa;
     border: 3px #fff solid;
 }
 
-.mercedes-btn,
-.redBull-btn,
-.mcLaren-btn,
-.default-btn {
+.theme__btn--mercedes,
+.theme__btn--redbull,
+.theme__btn--mclaren,
+.theme__btn--default {
     font-size: 18px;
 }
 
 /*----- TEXT AND IMAGE EFFECTS -----*/
-.simple-shadow {
+.text__shadow--light {
     text-shadow: 1px 1px 2px #c0c0c0;
 }
 
-.simple-shadow-dark {
+.text__shadow--dark {
     text-shadow: 1px 1px 2px #5c5c5c;
 }
 
 /* got the code snippet from @Amy_OShea_lead and adapted it slightly */
-.img-shadow {
+.img__shadow {
     -webkit-box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
     box-shadow: 0px 8px 10px rgba(149, 157, 165, 1);
 }
 
-.portrait-border {
+.portrait__border {
     border: 3px #4e657e ridge;
 }
 
 /*----- CARDS -----*/
+/* Bootstrap classname! Do not rename */
 .card-body {
     min-width: 210px;
     min-height: 136px;
     background-color: #e6f4f1;
 }
 
-.location,
-.times {
+.schedule__location,
+.schedule__times {
     border: 10px #4e657e ridge;
 }
 
@@ -145,17 +146,18 @@ caption,
 }
 
 /*----- SOCIAL MEDIA ICONS -----*/
-.social-link {
+.footer__socialmedia {
     color: #fff;
 }
 
+/* Font Awesome classname! Do not rename */
 .fab {
     font-size: 1.5em;
     margin-top: 10px;
 }
 
 /*----- CONTACT PAGE -----*/
-.contact-bg {
+.contact--bg {
     min-height: 100vh;
     background: url("../images/jake-givens-freeway-traffic.jpg") no-repeat 50% 50%;
     background-size: cover;
@@ -168,11 +170,11 @@ caption,
     justify-content: center;
 }
 
-.add-opacity {
+.form__add-opacity {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.bigger-font {
+.text--bigger-font {
     font-size: 1.5em;
 }
 
@@ -186,7 +188,7 @@ caption,
     #nextCard {
         min-height: 150px;
     }
-    .schedule-card {
+    .schedule__card {
         min-height: 408.97px;
         min-width: 250px;
     }
@@ -198,7 +200,7 @@ caption,
     #nextCard {
         min-width: 270px;
     }
-    .schedule-card {
+    .schedule__card {
         min-height: 471.8px;
         min-width: 270px;
     }
@@ -210,7 +212,7 @@ caption,
     #nextCard {
         min-width: 320px;
     }
-    .schedule-card {
+    .schedule__card {
         min-height: 610.89px;
         min-width: 300px;
     }
@@ -222,7 +224,7 @@ caption,
     #nextCard {
         min-width: 400px;
     }
-    .schedule-card {
+    .schedule__card {
         min-height: 620.27px;
         min-width: 350px;
     }
