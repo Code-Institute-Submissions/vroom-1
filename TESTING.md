@@ -170,3 +170,16 @@ Deliberately use wrong subdomain-names and explicitly enter the complete 404 URL
 
 -   Verdict
     Working as intended.
+
+# **W3C Markup Validator**
+
+[W3C Markup Validator](https://validator.w3.org/)
+
+Results: no errors reported for any page. See screenshots [here](assets/images/w3c-results/w3c-markup-homepage.png), [here](assets/images/w3c-results/w3c-markup-schedulepage.png), [here](assets/images/w3c-results/w3c-markup-contactpage.png) and [here](assets/images/w3c-results/w3c-markup-404page.png).
+
+# **W3CSS Validator**
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+Results: When using 'validate by direct input' no errors are found. Several warnings are displayed due to the usage of vendor prefixes.
+When using 'validate by URI' 13 errors and 409 warnings are found, which are caused by the Bootstrap CSS-file and vendor prefixes.
