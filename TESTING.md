@@ -183,3 +183,20 @@ Results: no errors reported for any page. See screenshots [here](assets/images/w
 
 Results: When using 'validate by direct input' no errors are found. Several warnings are displayed due to the usage of vendor prefixes.
 When using 'validate by URI' 13 errors and 409 warnings are found, which are caused by the Bootstrap CSS-file and vendor prefixes.
+
+# **Lighthouse**
+
+[homepage-mobile](assets/images/lighthouse-results/homepage-mobile.png)
+![homepage-mobile](assets/images/lighthouse-results/homepage-mobile.png)
+[homepage-desktop](assets/images/lighthouse-results/homepage-desktop.png)
+![homepage-desktop](assets/images/lighthouse-results/homepage-desktop.png)
+[schedule-mobile](assets/images/lighthouse-results/schedule-mobile.png)
+![schedule-mobile](assets/images/lighthouse-results/schedule-mobile.png)
+[contact-mobile](assets/images/lighthouse-results/contact-mobile.png)
+![contact-mobile](assets/images/lighthouse-results/contact-mobile.png)
+[404-mobile](assets/images/lighthouse-results/404-mobile.png)
+![404-mobile](assets/images/lighthouse-results/404-mobile.png)
+[404-desktop](assets/images/lighthouse-results/404-desktop.png)
+![404-desktop](assets/images/lighthouse-results/404-desktop.png)
+
+Overall, these results are quite satisfactory. The bad performances on mobile devices for the schedule page results, among other things, from the API returning links to images in one size regardless of the target device and lies outside my control.
