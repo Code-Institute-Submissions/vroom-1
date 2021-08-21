@@ -65,17 +65,21 @@ The driver, team logo and racetrack images are being provided by the API. Credit
 
 I used Balsamiq to plan the site’s layout for different viewports (mobile, tablet and desktop). To better demonstrate the differences, I sort my wireframes by page and show the versions for mobile, tablet and desktop next to each other.
 
-[Wireframes for index.html](wireframes/index.png)
-![wireframes for index.html](wireframes/index.png)
-Differences in the deployed version:
-**Add description**
-
-[Wireframes for contact.html](wireframes/contact.png)
-![wireframes for contact.html](wireframes/contact.png)
+[Wireframes for index.html](assets/wireframes/homepage.png)
+![wireframes for index.html](assets/wireframes/homepage.png)
 Differences in the deployed version:
 
--   The elements with information about each race in the 2021 season have been moved to a separate page. The layout hasn't changed, therefore I didn't create a new wireframe.
+-   The name of the project has been changed to Vroom.
+-   In the navbar, 'Schedule' has been renamed to 'Schedule overview' to better differentiate it from the added 'Full Schedule'.
+-   The links for 'Drivers' and 'Teams' have been removed. The additional information has been placed into modals.
+-   The elements with the full schedule and information about each race in the 2021 season have been moved to a separate page. The layout hasn't changed, therefore I didn't create a new wireframe.
 -   The display of the first three places from the previous year for each race has been removed from the project. It would have added at least 22 more API calls. Furthermore, neither one of the two APIs I'm using provides suitable endpoints.
+
+[Wireframes for contact.html](assets/wireframes/contact.png)
+![wireframes for contact.html](assets/wireframes/contact-form.png)
+Differences in the deployed version: none.
+
+No wireframe has been created for the 404 page due to it's minimalist design. I decided against creating one ex post as that would defy the purpose of a wireframe.
 
 ## **Features**
 
