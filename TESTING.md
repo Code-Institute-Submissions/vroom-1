@@ -200,3 +200,7 @@ When using 'validate by URI' 13 errors and 409 warnings are found, which are cau
 ![404-desktop](assets/images/lighthouse-results/404-desktop.png)
 
 Overall, these results are quite satisfactory. The bad performances on mobile devices for the schedule page results, among other things, from the API returning links to images in one size regardless of the target device and lies outside my control.
+
+# **Usability Testing**
+
+Family, friends and colleagues were asked to test the site on their computers and/or mobile devices and their preferred browsers. No issues regarding the navigation of the site were reported. When using Firefox, for the homepage the site takes way too long to load and seems to constantly reload before finally displaying the page content. 'TypeError: Network error when attempting to fetch resource' is repeatedly being displayed in the console. The others pages are being loaded and displayed normally. No problems could be noticed or have been reported when using Chrome, Edge or Opera. No issues regarding the buttons, modals or contact form were reported.
