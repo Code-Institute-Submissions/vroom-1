@@ -167,9 +167,9 @@ Users who enter an incorrect URL for the site are being directed to the 404 page
 -   [Sizzy](https://sizzy.co/)
 -   [Balsamiq](https://balsamiq.com/)
 -   [Coolors colour palette generator](https://coolors.co/)
--   [Google Cloud Platform](https://cloud.google.com/)
 -   [W3C HTML Validation Service](https://validator.w3.org/)
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+-   [JSHint](https://jshint.com)
 -   [GitHub Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/)
 
 ## **Testing**
@@ -178,15 +178,15 @@ Users who enter an incorrect URL for the site are being directed to the 404 page
 
 ### **Functionality Testing**
 
-**to be added**
+Please refer to the separate [TESTING.md](TESTING.md)
 
 ## **Usability Testing**
 
-**to be added**
+Please refer to the separate [TESTING.md](TESTING.md)
 
 ## **Compatibility Testing**
 
-**to be added**
+Please refer to the separate [TESTING.md](TESTING.md)
 
 ## **Testing User Stories**
 
