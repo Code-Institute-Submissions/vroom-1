@@ -87,11 +87,60 @@ No wireframe has been created for the 404 page due to it's minimalist design. I 
 
 ### **Existing Features**
 
-**Add list**
+#### **All pages: navbar**
+
+The navbar is in a fixed position at the top of each page allowing the user quick access to navigate the site. The link for the currently active page will be highlighted to facilitate orientation. The non-active links will be highlighted in a similar, but more subtle way and additionally, the mouse cursor will change.
+On mobile devices, the navigation links collapse into the widely used hamburger-menu and are positioned on the right hand side for easy access. The brand is positioned to the left-hand side to allow users to easily return to the homepage with one touch.
+
+#### **All pages: footer**
+
+The footer is located at the bottom of each page and includes links to social media. The links open in a new browser tab.
+
+#### **Homepage: welcome section**
+
+The welcome section consists of a short paragraph informing the user about the site's aim.
+
+#### **Homepage: schedule overview**
+
+The schedule overview shows the country, city, name and date for the previous, current and next race. On viewports >= 768px information for all three races is displayed next to each other in chronological order. On mobile devices only the information about the current race is being displayed. Users can use buttons to change the display to either the previous or current race. Data for the schedule overview are being fetched from the API-FORMULA-1 by API-SPORTS.
+
+#### **Homepage: theme selection**
+
+Users can choose between three different team themes to change the color scheme for the driver and team standings as well as the headings for those tables. Users can also revert back to the default theme. The selected theme is saved to local storage and applied after a page reload.
+
+#### **Homepage: driver standings**
+
+Users can check the position of all current F1 drivers in the championship and their current points as well as the team the selected driver is driving for. On mobile devices the display of the drivers' team is being hidden. A short text above the table informs the user that additional information about the driver is available by clicking on a drivers' name. Data for the driver standings are being fetched from the API-FORMULA-1 by API-SPORTS.
+
+#### **Homepage: modal with additional information about drivers**
+
+When a user clicks on a drivers name in the driver standings table, a modal appears centred on the screen. The modal includes the driver's name, his birthdate, nationality and a picture of the driver. Users can close the modal by clicking on the 'X' in the top right corner, the close-button in the bottom-right corner or by clicking outside the modal. Data for the driver modals are being fetched from the API-FORMULA-1 by API-SPORTS.
+
+#### **Homepage: team standings**
+
+Users can check the position of all current F1 teams and their current points in the championship. To use F1 vocabulary, the term constructor is used instead of team. A short text above the table informs the user that additional information about the team is available by clicking on a team's name. Data for the team standings are being fetched from the API-FORMULA-1 by API-SPORTS.
+
+#### **Homepage: modal with additional information about teams**
+
+Similar to the modal with additional information about drivers. The only difference is the data being shown. This modal shows the team name, the names of the director and technical manager, the name of the engine being used by the F1 cars and the team logo. Data for the team modals are being fetched from the API-FORMULA-1 by API-SPORTS.
+
+#### **Full schedule page: race information**
+
+The full schedule page features two columns for each race in the current F1 season. On the left hand, information about the round number, date, country, race name, track name and the track map are being displayed. On the right hand, the starting times for each race session (practice 1 - 3, qualifying and the race) are being displayed. Data for the full schedule are being fetched from the F1 Live Motorsport Data API by sportcontentapi.
+
+#### **Contact page: contact form**
+
+The contact page features a contact form. The form uses form-validation and all input fields have to be filled out for the user to be able to submit the form. Users have the option to clear the form content. When the user submits the form a modal informs the user about the successful submission and the form is cleared. EmailJS is used to inform the site owner about user messages including the message text and the user's name and email address.
+
+#### **404 page: link back to homepage**
+
+Users who enter an incorrect URL for the site are being directed to the 404 page. The page features a short technical error message, an image of red race lights and a short explanation that there is no page to be displayed. Beneath, they can click on the link to be directed back to the homepage.
 
 ### **Features to be implemented**
 
-**Add list**
+-   Displaying the start times for the individual race sessions in local time in addition to track time.
+-   Let users browse through data for previous seasons
+-   Provide links for users to buy tickets for the individual races
 
 ## **Technologies Used**
 
