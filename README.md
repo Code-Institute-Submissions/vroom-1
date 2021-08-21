@@ -6,7 +6,8 @@ Link to live project: [Vroom](https://ryagg.github.io/vroom)
 
 Vroom is a website that provides a quick overview of the most important F1 Data using the API-FORMULA-1 by API-SPORTS. Users can see the current, previous, and upcoming race at a glance, take a look at the driver’s and team standings, see the full race calendar with track details and change the website’s theme.
 
-ADD MOCKUP
+![Mockup](assets/images/readme/sizzy-mockup.png)
+Due to most of the data on the site being dependent on API calls I couldn't use the usual tools (http://ami.responsivedesign.is/ or https://techsini.com/multi-mockup/). The table with the driver standings would have been empty and the three cards for the schedule overview would have showed placeholder text. I therefore used Sizzy to create the mockup.
 
 ## **User Experience (UX)**
 
@@ -105,8 +106,6 @@ Differences in the deployed version:
 -   [Balsamiq](https://balsamiq.com/)
 -   [Coolors colour palette generator](https://coolors.co/)
 -   [mycolor.space](https://mycolor.space/)
--   [Techsini](http://techsini.com/multi-mockup/)
--   [Am I Responsive?](http://ami.responsivedesign.is/#)
 -   [Google Cloud Platform](https://cloud.google.com/)
 -   [W3C HTML Validation Service](https://validator.w3.org/)
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
