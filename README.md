@@ -240,9 +240,55 @@ Unfortunately, this feature could not be implemented. Neither of the used APIs o
 
 ## **Bugs**
 
--   Missing track maps for the Portugese, Saudi Arabia and Abhu Dhabi Grand Prix
-    The function addTrackMap(className, query) returns an object with various data about the race track. The variable trackMap contains the URL for the track map. There are URLs for each of the race tracks. But the URLS for the races in Saudi Arabia and Abu Dhabi lead to a '404 Not Found' page. This then causes an uncaught TypeError in the console. Depending on whether I declare the variable trackName or trackMap first the error will read 'Cannot read property 'name' of undefined at addTrackMap' or 'Cannot read property 'image' of undefined at addTrackMap'. This error is neither caused by me nor can it be fixed by me.
-    The URL for the race in Portugal displays the race map but on the deployed site only the alt text is displayed. For the moment, I will continue with other features and chores and hopefully be able to find a fix for this before I submit the project.
+-   **Caused by bad data from API: missing or wrong driver images**
+
+    For the following drivers the URL for the driver images lead to a '404 Not Found' page:
+
+    -   [Sergio Perez](assets/images/bugs/perez-response.png) : [404](assets/images/bugs/perez-404.png)
+
+    -   [Yuki Tsunoda](assets/images/bugs/tsunoda-response.png) : [404](assets/images/bugs/tsunoda-404.png)
+
+    -   [Nicholas Latifi](assets/images/bugs/latifi-response.png) : [404](assets/images/bugs/latifi-404.png)
+
+    -   [Mick Schumacher](assets/images/bugs/schumacher-response.png) : [404](assets/images/bugs/schumacher-404.png)
+
+    -   [Nikita Mazepin](assets/images/bugs/mazepin-response.png) : [404](assets/images/bugs/mazepin-404.png)
+
+    For the following drivers the URL from the API for the driver images lead to a wrong picture:
+
+    -   [Carlos Sainz Jr](assets/images/bugs/sainz-response.png) : [wrong image](assets/images/bugs/sainz-wrong-picture.png)
+
+    The picture shows his father.
+
+    -   [Sebastian Vettel](assets/images/vettel-response.png) : [wrong image](assets/images/bugs/vettel-wrong-picture.png)
+
+    The picture does show Sebastian Vettel but in his Ferrari team wear from last season. He now drives for Aston Martin.
+
+-   **Caused by bad data from API: missing and wrong info for team modal**
+
+    For the Williams F1 Team the name of the director is being displayed as ['null'](assets/images/bugs/williams-wrongdata.png) and the names of the president and technical manager are wrong. Ownership of the team has changed in August 2020 and Claire Williams stepped down. Simon Roberts left the team in June 2021.
+
+-   **Caused by bad data from API: missing track maps for the Portugese and Saudi Arabia Prix and track map for Abu Dhabi not being displayed**
+
+    The function addTrackMap(className, query) returns an object with various data about the race track. The variable trackMap contains the URL for the track map. There are URLs for each of the race tracks. But the URLS for the races in [Saudi Arabia](assets/images/bugs/saudiarabia-response.png) and [Portugal](assets/images/bugs/portugal-response.png) lead to a '404 Not Found' page [here](assets/images/bugs/portugal-404.png) and [here](assets/images/bugs/saudiarabia-404.png). This then causes an uncaught TypeError in the console. Depending on whether I declare the variable trackName or trackMap first the error will read 'Cannot read property 'name' of undefined at addTrackMap' or 'Cannot read property 'image' of undefined at addTrackMap'. This error is neither caused by me nor can it be fixed by me.
+
+    For the Portugese Grand Prix the track name is displayed and instead of the track map the [alt-text](assets/images/bugs/portugal-alt.png) is being displayed.
+    For the Grand Prix of Saudi Arabia neither the track name nor the track map are being displayed. Instead both my own error message and my [generic racetrack image](assets/images/bugs/saudiarabia-generic.png) are being displayed.
+    The URL for the race in Abu Dhabi displays the track map but on the deployed site the [generic racetrack image](assets/images/bugs/abudhabi-generic.png) and error text are being displayed.
+
+-   **Caused by me: cards for previous and next race not being centred on mobile devices**
+
+    On mobile devices the user has to use the shift-left and shift-right buttons to see the data for the previous or next race. Instead of using a Bootsrap carousel or a JavaScript framework I decided to implement this feature myself. I frequently checked the results with Chrome Devtools and in the end the previous and next cards appeared almost centred. I added several breakpoints for mobile devices to achieve this. The cards just a few pixels off, if at all. I was satisfied with the result. See exemplary screenshots [here](assets/images/bugs/devtools-centred.png) and [here](assets/images/bugs/devtools-centred-2.png). When loading the page on my own mobile, the cards were clearly off to the light or right side for the previous or next race card respectively. When I checked the results with Sizzy the cards appeared centred for some mobile devices, but not for others two days ago. After adding vendor prefixes through Autoprefixer Sizzy suddenly displayed the race cards being off to the side for all devices although the corresponding code was not affected by added prefixes. Interestingly, for the Galaxy S10 Sizzy showed the cards not being centred, but when a colleage loaded the site, the card did appear centred. Utterly confused and running out of ideas (after trying several variations of the Bootstrap position utilities, changing the width of the not active neighbour card to 1px, decreasing the z-index of the non-active card, and using a combination of float and toggle) I decided to give up on trying to center the cards.
+
+-   **Caused by me: height of the schedule cards with session times not always matching the height of the schedule cards with location information**
+
+    The schedule cards displaying the session times need less height than the schedule cards displaying the location information on the schedule page. Additionally, for the races in Saudi Arabia and Abu Dhabi ( rounds 20 + 21) generic racetrack images are being displayed instead of the track maps as mentioned in the corresponding bug report. These images are made responsive with the img-fluid class. They therefore differ in size in relation to the track maps.I tried to adjust by adding mediaqueries with values for min-height for the schedule cards. This works well for rounds 1 - 19 and all breakpoints in Google Chrome, Microsoft Edge, Firefox and Opera. It does not work for rounds 20 + 21 and breakpoints larger than 1440px in Microsoft Edge and Mozilla Firefox. I tried converting px to em for the 4k breakpoint to no avail.
+
+-   **Caused by me: placeholder text or images being visible while content is being fetched from the API**
+
+        Without placeholder text for headings or an image src I risk validator warnings and with
+
+    an image src for a non-existent picture or icon an error is logged to the console. I have no better solution.
 
 ## **Deployment**
 
