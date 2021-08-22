@@ -211,6 +211,9 @@ caption,
         min-height: 651.89px;
         min-width: 300px;
     }
+    .schedule__card p {
+        font-size: 22px;
+    }
 }
 
 @media screen and (min-width: 2400px) {

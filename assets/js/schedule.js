@@ -158,8 +158,9 @@ function addSessionTimes(session, sessionNumber) {
         let sessionName = document.getElementsByClassName(`${session}`);
         sessionName[i].innerText = `${
             session[0].toUpperCase() + session.substr(1).slice(0, -4)
-        } starts at
-    ${getSessionDetails(sessionNumber)[i]}`;
+        } starts at ${getSessionDetails(sessionNumber)[i]}
+
+        `;
     }
 }
 
