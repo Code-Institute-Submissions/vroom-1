@@ -306,12 +306,12 @@ Unfortunately, this feature could not be implemented. Neither of the used APIs o
 -   Forking
     If you wish to use this repository as a starting point or to propose changes to this project, you can fork it. Follow the steps below.
 
-    1. Navigate to the repository, e.g. [Ryagg/ms2-speedy-f1-data](https://github.com/Ryagg/ms2-speedy-f1-data)
+    1. Navigate to the repository, e.g. [Ryagg/vroom](https://github.com/Ryagg/vroom)
     2. Click 'Fork' in the top-right corner.
 
 -   Cloning
     Cloning a repository creates a local copy on your computer. Follow the steps below.
-    1. Navigate to the repository, e.g. [Ryagg/ms2-speedy-f1-data](https://github.com/Ryagg/ms2-speedy-f1-data)
+    1. Navigate to the repository, e.g. [Ryagg/vroom](https://github.com/Ryagg/vroom)
     2. Click 'Code' above the list of files.
     3. In the new window, cloning using HTTPS is the default option. Copy the provided link manually or by clicking on the clipboard symbol.
     4. Open Git Bash.
