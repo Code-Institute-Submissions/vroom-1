@@ -170,7 +170,6 @@ Users who enter an incorrect URL for the site are being directed to the 404 page
 -   [W3C HTML Validation Service](https://validator.w3.org/)
 -   [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 -   [JSHint](https://jshint.com)
--   [GitHub Wiki TOC generator](https://ecotrust-canada.github.io/markdown-toc/)
 
 ## **Testing**
 
@@ -286,8 +285,7 @@ Unfortunately, this feature could not be implemented. Neither of the used APIs o
 
 -   **Caused by me: placeholder text or images being visible while content is being fetched from the API**
 
-        Without placeholder text for headings or an image src I risk validator warnings and with
-
+    Without placeholder text for headings or an image src I risk validator warnings and with
     an image src for a non-existent picture or icon an error is logged to the console. I have no better solution.
 
 ## **Deployment**
@@ -321,8 +319,6 @@ Unfortunately, this feature could not be implemented. Neither of the used APIs o
 
 ## **Credits**
 
-**to be added**
-
 ### **Media**
 
 The following photos used for this project were obtained from [Unsplash](https://unsplash.com).
@@ -345,4 +341,9 @@ The generic-team icon used as a placeholder in the team modal was made by [Freep
 
 ### **Acknowledgements**
 
-**to be added**
+Many thanks to:
+
+-   My mentor Maranatha Ilesanmi for his helpful insights and feedback.
+-   The always helpful and supportive CI slack community
+-   My boss for allowing me to leave work early quite often to work on my project instead
+-   My friends and colleagues for their support and feedback
