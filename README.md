@@ -288,6 +288,10 @@ Unfortunately, this feature could not be implemented. Neither of the used APIs o
     Without placeholder text for headings or an image src I risk validator warnings and with
     an image src for a non-existent picture or icon an error is logged to the console. I have no better solution.
 
+-   **Too much whitespace on schedule page for breakpoints equal to and larger than 1440px and cards not horizontally equally spaced**
+
+    The schedule page looks awful on viewports with 1440px and more. The track maps from the API are not responsive and there is not enough other content to fill the space. I've tried to adjust for this by changing the col-size from 6 to 4 for both cards, increasing the font-size and changing the margins. It looks slightly better, but the result is still not satisfactory. I can't make the track maps from the API responsive. A third column with session times being displayed in local time would greatly amend this problem, but currently I have no solution.
+
 ## **Deployment**
 
 ---
